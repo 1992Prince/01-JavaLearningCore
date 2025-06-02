@@ -1,0 +1,37 @@
+package com.nio;
+
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class P1_PathExampleWithIncorrectFilePath {
+
+    public static void main(String[] args) {
+
+        // below path does't exists and stil Path interface obj will be created without any exceptions
+        // bcoz Path doesn't checks file existence
+        String pathString = "src/test/java/com/niofgw/resources/test1.txt";
+
+
+        try {
+            // Create a Path instance using Paths.get()
+            Path path = Paths.get(pathString);
+
+            // Use formatted strings to display Path components
+            System.out.println(String.format("Path: %s", path));
+            // Path: src\test\java\com\niofgw\resources\test1.txt
+            System.out.println(String.format("Absolute Path: %s", path.toAbsolutePath()));
+            // Absolute Path: D:\Eclipse_Workpace\PracticalJava\src\test\java\com\niofgw\resources\test1.txt
+            System.out.println(String.format("File Name: %s", path.getFileName())); // File Name: test1.tx
+            System.out.println(String.format("Parent Directory: %s", path.getParent())); // Parent Directory: src\test\java\com\niofgw\resources
+            System.out.println(String.format("Root Directory: %s", path.getRoot())); // Root Directory: null
+        } catch (InvalidPathException e) {
+            // Handle InvalidPathException for invalid paths
+            System.out.println("Error: Invalid path provided. Details: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        System.out.println();
+
+    }
+}

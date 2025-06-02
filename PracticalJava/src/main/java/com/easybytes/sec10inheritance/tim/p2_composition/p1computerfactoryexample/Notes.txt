@@ -1,0 +1,11 @@
+Monitor, Motherboard, ComputerCase, PersonalComputer are subclasses of Product.
+
+Now we need to create a PersonalComputer
+
+PersonalComputer can be assembled with Monitor, Motherboard and ComputerCase. This is called Compositon.
+
+So we are using both inheritance and composition concepts to develop our PersonalComputer.
+
+For class diagrams, check its slides present in D:\EasyBytesJavaNotes\sec10_inheritance\tim\p2_composition
+
+Now PersonalComputer have 3 fields i.e. Monitor, Motherboard and ComputerCase. [example of compositon]

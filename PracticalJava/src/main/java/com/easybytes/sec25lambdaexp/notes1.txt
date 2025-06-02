@@ -1,0 +1,9 @@
+Method References -
+==================
+
+are also introduced as part of java8 as supporting component to build the lambda exp
+
+Pls note that u can use Method References Concept only in scenarios when u r
+trying to build a lambda expression by using business logic present inside
+another java method.
+

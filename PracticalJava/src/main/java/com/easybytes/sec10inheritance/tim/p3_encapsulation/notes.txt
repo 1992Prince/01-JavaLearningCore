@@ -1,0 +1,1 @@
+Start with Player class which is created without doing encapsulation oops principle.

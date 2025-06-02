@@ -1,0 +1,6 @@
+Here we are going to focus on Streams API that are introduced as part of functional
+programming in java 8 release.
+
+1) We can have multiple intermediate operations on an stream object
+
+2) But we can have only single terminal operation on an stream object.

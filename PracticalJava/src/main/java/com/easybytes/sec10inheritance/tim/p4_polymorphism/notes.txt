@@ -1,0 +1,27 @@
+Up until now, I've always had the main method or calling code create instances of the object.
+
+But this time, I'll create a method on the movie class that the calling code can execute,
+
+that will return a movie instance for us. I'll make this method public and static,
+
+Prince u create an MovieFactory class and keep this static method there.
+
+
+
+By providing this method getMovie() in MovieFactory class, the code in the main method (the calling code), doesn't really need to
+
+know anything about any of movie's subclasses.
+
+It can just pass in the type and get a different type of movie subclass.
+
+This kind of method that returns a new instance object, is known as a factory method in software programming design patterns.
+
+Factory methods give us a way to obtain an object without having to know the details of how to create one.
+
+
+so earlier in main method we use to create Movie class or subclass instance by passing movie title name
+but
+in MovieFactory class we are just specifying movie type and movie title and static getMovie() method is returning instance of that class
+
+In getMovie() method actually Upcasting is happening automatically and this upcasting is helping us to write a generic code method
+that can work for class and all its subclasses. [For more details check reddy notes]

@@ -1,0 +1,106 @@
+LinkedList class multiple interfaces ko implement karta hai:
+List<E> (for ordered elements)
+Deque<E> (for double-ended queue operations)
+Queue<E> (for FIFO queue behavior)
+
+Deque interface provides addFirst() and addLast() methods
+
+Bhai, Deque (Double-Ended Queue) ek queue ka extended version hai jisme tum elements ko dono taraf se add aur remove kar sakte ho.
+
+👉 Full Form: Deque = Double-Ended Queue
+👉 Interface: java.util.Deque<E>
+👉 Implemented by: LinkedList, ArrayDeque
+
+🔍 Key Features of Deque
+✅ FIFO (Queue behavior) – First-In-First-Out (Normal Queue)
+✅ LIFO (Stack behavior) – Last-In-First-Out (Stack ki tarah bhi use ho sakta hai)
+✅ Add/Remove elements from both ends (Front aur Rear dono se operations allowed hain)
+✅ Deque ko LinkedList ya ArrayDeque se implement kar sakte hain
+
+
+LinkedList class Deque interface implement karta hai, isiliye saare Deque methods LinkedList me available hote hain! 🎯
+
+🔹 1️⃣ Insertion Methods (add & offer series)
+Method	        Purpose
+addFirst(E e)	Element ko front me add karta hai (throws exception if full)
+addLast(E e)	Element ko end me add karta hai (throws exception if full)
+offerFirst(E e)	Element ko front me add karta hai (false return if full)
+offerLast(E e)	Element ko end me add karta hai (false return if full)
+
+ public static void main(String[] args) {
+        Deque<String> deque = new LinkedList<>();
+
+        deque.addFirst("Apple");  // ✅ Front me add karega
+        deque.addLast("Banana");  // ✅ End me add karega
+        deque.offerFirst("Orange"); // ✅ Front me add karega (No exception)
+        deque.offerLast("Grapes");  // ✅ End me add karega (No exception)
+
+        System.out.println(deque); // [Orange, Apple, Banana, Grapes]
+    }
+
+🔹 2️⃣ Deletion Methods (remove & poll series)
+Method	Purpose
+removeFirst()	Front se element remove karta hai (throws exception if empty)
+removeLast()	End se element remove karta hai (throws exception if empty)
+pollFirst()	Front se element remove karta hai (null return karega if empty)
+pollLast()	End se element remove karta hai (null return karega if empty)
+
+ Deque<String> deque = new LinkedList<>();
+
+        deque.add("A");
+        deque.add("B");
+        deque.add("C");
+
+        System.out.println(deque.pollFirst()); // ✅ A (Remove first element)
+        System.out.println(deque.pollLast());  // ✅ C (Remove last element)
+        System.out.println(deque.removeFirst()); // ✅ B (Remove first element)
+
+        System.out.println(deque.pollFirst()); // ✅ null (Queue is empty)
+
+🔹 3️⃣ Peeking Methods (Access Without Removal)
+Method	Purpose
+peekFirst()	First element return karega (null if empty)
+peekLast()	Last element return karega (null if empty)
+element()	First element return karega (Exception if empty)
+
+   Deque<String> deque = new LinkedList<>();
+
+        deque.add("A");
+        deque.add("B");
+        deque.add("C");
+
+        System.out.println(deque.peekFirst()); // ✅ A (First element)
+        System.out.println(deque.peekLast());  // ✅ C (Last element)
+
+        deque.clear(); // Queue ko empty kar diya
+
+        System.out.println(deque.peekFirst()); // ✅ null (Queue is empty)
+        System.out.println(deque.element()); // ❌ Exception (Queue empty hai)
+
+
+🔹 Bonus: Stack Methods (LIFO Behavior)
+Bhai, Deque ko Stack ki tarah bhi use kar sakte ho using push() aur pop().
+
+Method	Purpose
+push(E e)	Element ko stack ke top par push karta hai
+pop()	Stack ke top se element remove karta hai
+
+
+Deque<String> stack = new LinkedList<>();
+
+        stack.push("First");
+        stack.push("Second");
+        stack.push("Third");
+
+        System.out.println(stack.pop()); // ✅ Third (LIFO behavior)
+        System.out.println(stack.pop()); // ✅ Second
+        System.out.println(stack.pop()); // ✅ First
+
+
+------------------------------------------------------------------
+
+🎯 Final Answer
+Bhai, Deque ek Double-Ended Queue hai jo Queue + Stack ka hybrid hai!
+
+FIFO Queue jaise behave kar sakta hai (add/remove from front)
+LIFO Stack jaise behave kar sakta hai (push/pop)

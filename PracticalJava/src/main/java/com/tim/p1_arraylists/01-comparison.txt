@@ -1,0 +1,108 @@
+🔍 List.of() vs Arrays.asList() in Java
+
+Bhai, dono methods List.of() aur Arrays.asList() ka use ek List banane ke liye hota hai, lekin in dono me bhot differences hain.
+
+🚀 List.of() kya hai? (Java 9+)
+💡 Points: ✅ List.of() immutable list banata hai. Matlab list banne ke baad na add kar sakte, na remove, na modify kar sakte.
+✅ Null values allowed nahi hai, agar null pass kiya to NullPointerException aayega.
+✅ Java 9 se introduce hua hai.
+✅ Ye java.util.ImmutableCollections.ListN ka object return karta hai.
+✅ Best jab list kabhi change nahi karni ho.
+
+example1 -
+
+String[] items = {"apples", "bananas", "milk", "eggs"};
+
+        List<String> list = List.of(items);
+        System.out.println("Factory Method list - " + list); // Factory Method list - [apples, bananas, milk, eggs]
+
+example2 -
+
+
+
+ List<String> fruits = List.of("Apple", "Banana", "Cherry");
+ fruits.add("Orange"); // ❌ UnsupportedOperationException
+ fruits.set(1, "Mango"); // ❌ UnsupportedOperationException
+
+ Output - Exception in thread "main" java.lang.UnsupportedOperationException
+ ❌ Matlab: Ye list change nahi ho sakti!
+
+ example3 -
+
+ List<String> list = List.of("A", null, "C"); // ❌ NullPointerException
+ Output - Exception in thread "main" java.lang.NullPointerException
+
+ Bhai, List.of() me null values allow nahi hain, isliye error aayega! ❌
+
+
+ ------------------------------------------------------------------------
+
+ 🚀 Arrays.asList() kya hai?
+ 💡 Points: ✅ Arrays.asList() ek fixed-size list banata hai.
+ ✅ List ka size change nahi kar sakte, lekin elements modify kar sakte ho.
+ ✅ Null values allow hain, koi dikkat nahi.
+ ✅ Java 1.2 se available hai.
+ ✅ Ye java.util.Arrays$ArrayList ka object return karta hai.
+ ✅ Best jab ek array ko list me convert karna ho.
+
+ Example1 -
+
+ String[] fruitsArray = {"Apple", "Banana", "Cherry"};
+
+         // Convert array to list
+         List<String> fruitsList = Arrays.asList(fruitsArray);
+
+         System.out.println(fruitsList); // [Apple, Banana, Cherry]
+
+ Example2 -
+
+  List<String> list = Arrays.asList("Apple", "Banana", "Cherry");
+         System.out.println(list); // [Apple, Banana, Cherry]
+
+ Example3 - Modify allowed hah
+
+ List<String> list = Arrays.asList("Apple", "Banana", "Cherry");
+
+         list.set(1, "Mango"); // ✅ Allowed
+         System.out.println(list); // [Apple, Mango, Cherry]
+
+ Example4 - dd/Remove Arrays.asList() – Error aayega!
+  List<String> list = Arrays.asList("Apple", "Banana", "Cherry");
+
+         list.add("Orange"); // ❌ UnsupportedOperationException
+         list.remove("Apple"); // ❌ UnsupportedOperationException
+         Output - Exception in thread "main" java.lang.UnsupportedOperationException
+
+ Example5- null Allowed hai
+   List<String> list = Arrays.asList("A", null, "C");
+         System.out.println(list); // [A, null, C]
+
+ ----------------------------------------------------------------------------------------------
+
+ 🔥 List.of() vs Arrays.asList() – Difference Table
+
+ Feature	    List.of() (Java 9+)	                Arrays.asList()
+ Mutability	    ❌ Immutable	                    ⚠ Fixed-size, Modifiable
+ Allows null?	❌ No (NullPointerException)	    ✅ Yes
+ Add/Remove	    ❌ UnsupportedOperationException	❌ UnsupportedOperationException
+ Modify elements	❌ Not possible	                ✅ Allowed (set())
+ Underlying Structure	ImmutableCollections.ListN	Arrays$ArrayList
+ Performance	         Optimized for immutability	Array-backed
+
+
+------------------------------------------------------------------------------------------
+
+🤔 Bhai kaunsa use kare?
+✅ List.of() kab use kare?
+Jab list modify nahi karni ho.
+Jab null values nahi chahiye.
+Jab performance optimized immutable list chahiye.
+
+✅ Arrays.asList() kab use kare?
+Jab array ko list me convert karna ho.
+Jab elements modify karne hain, lekin add/remove nahi.
+Jab null values allowed chahiye.
+
+---------------------------------------------------------------------------------------------
+
+

@@ -1,0 +1,27 @@
+In Java Set is an interface that extends Collection interface.
+A Set is a collection of unique elements, meaning no element can be repeated within Set object.
+Sets are typicallly used when you want to store a collection of items,but you only need to keep track of unique items and
+you don't care about order in which they are added.
+
+HashSet is most common implementation class of Set and to create Set in java
+ Set<String> mySet = new HashSet<>();
+
+ To create Set from existing Collection
+ List<String> myList = new ArrayList<>();
+ Set<String> mySet = new HashSet<>(myList); // this HashSet obj that contains all unique elements of myList
+
+ The elements inside HashSet are stored using hashing mechanisms and hash-table.
+
+ It allows only one null value.
+
+ HashSet class is non-synchronized and is useful for search operations.
+ Since HashSet class is non-synchronized, we should not be using it for multi-threading environments.
+
+ If your business logic involves lots of search operation and unique elements then u should use HashSet class.
+
+ #How to retrieve elements from HashSet?
+ HashSet doesnot offers a direct method for retrieving objects such as get(KEy key) in HashMap or get(int index) in List.
+ The only way to retrieve objects from the HashSet is through iterating the entire HashSet.
+ This can be achiveved by using iterator() i.e. for or for-each etc.
+
+
