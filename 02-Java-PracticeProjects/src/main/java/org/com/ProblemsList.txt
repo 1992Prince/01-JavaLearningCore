@@ -1,0 +1,14 @@
+🔥 Java OOPs Learning Plan (With Projects & Automation Use)
+
+| Day | Concept                                      | Mini Project          | Where Used in Automation          |
+| --- | -------------------------------------------- | --------------------- | --------------------------------- |
+| 1   | **Class & Object**                           | Bank Account          | Page/Component classes            |
+| 2   | **Encapsulation**                            | Student Record System | Driver/Config management          |
+| 3   | **Inheritance**                              | Employee Payroll      | BaseTest, Page inheritance        |
+| 4   | **Polymorphism**                             | Shape Calculator      | Method overriding in utilities    |
+| 5   | **Abstraction (interface & abstract class)** | Payment Gateway       | Framework design contracts        |
+| 6   | **Constructor Overloading**                  | Book Store Inventory  | Page Object constructors          |
+| 7   | **Composition vs Inheritance**               | Vehicle Engine        | Driver & Reporter setup           |
+| 8   | **Access Modifiers**                         | Library Management    | Secure field/method access        |
+| 9   | **Static & Final Keyword**                   | Constants Utility     | Reusable Constants, Utilities     |
+| 10  | **Factory Design Pattern**                   | DriverFactory         | Launch different browsers/drivers |

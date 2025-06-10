@@ -1,0 +1,62 @@
+✅ Format We’ll Follow for Every Concept:
+
+✅ Problem Statement (Real-world style)
+🎯 OOP Concept To Learn
+🧩 Class Diagram / Design Plan
+🔨 Code Implementation (With Best Practices & Java 8+ features)
+🧠 Conclusion: What We Learned
+🤖 Where & How to Use in Automation Framework
+
+Let’s start with OOP Day 1 → Class & Object
+
+🚩 Problem Statement
+
+Design a basic Bank Account system where:
+A user can deposit, withdraw, and check balance.
+There can be multiple accounts (e.g., Ravi, Meena, etc.).
+Balance should always be protected from direct manipulation.
+
+🎯 OOP Concept to Learn
+
+Class & Object
+Instance variables & methods
+Object-based memory model
+Real-world object modeling
+
+🧩 Class Design
++----------------------+
+|     BankAccount      |
++----------------------+
+| - accountHolder: String
+| - balance: double     |
++----------------------+
+| + deposit(amount)     |
+| + withdraw(amount)    |
+| + getBalance()        |
+| + setHolder(name)     |
+| + getHolder()         |
++----------------------+
+
+✅ Best Practices Used
+| Principle           | Explanation                                                    |
+| ------------------- | -------------------------------------------------------------- |
+| ✅ Encapsulation     | Private fields, public methods                                 |
+| ✅ Constructor       | Initialized object with a name                                 |
+| ✅ Validation        | Basic checks in deposit/withdraw                               |
+| ✅ Java 8+ readiness | Modern coding practices (clear constructor, guard conditions)  |
+| ✅ Separation        | Logic inside BankAccount class only, used via object in `Main` |
+
+🧠 Conclusion: What We Learned
+Class is blueprint, Object is instance.
+Data (balance, holder) is tightly coupled to behavior (deposit, withdraw).
+You can create multiple isolated objects, each with its own state.
+Data hiding and method access help model real-world safely.
+
+🤖 Automation Framework Use-Case
+| Concept in Project        | In Framework                       |
+| ------------------------- | ---------------------------------- |
+| `BankAccount` class       | `LoginPage`, `DriverManager`, etc. |
+| `deposit()`, `withdraw()` | `login()`, `clickButton()`, etc.   |
+| `acc1`, `acc2`            | Different page objects             |
+| `getBalance()`            | `getTitle()`, `getText()`          |
+| `private balance`         | `private WebDriver driver`         |
