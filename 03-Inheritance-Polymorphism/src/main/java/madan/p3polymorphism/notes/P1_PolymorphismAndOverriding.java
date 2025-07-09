@@ -29,6 +29,7 @@ public class P1_PolymorphismAndOverriding {
      *
      * 🔷 1. What is Method Overriding?
      * ➡ Method overriding occurs when a subclass provides its own version of a method already defined in its parent class.
+     *   Parent child relationship must be present [happens in inheritance]
      *
      * ✅ Same method name, return type, and parameters
      * ✅ Enables runtime polymorphism (dynamic binding)

@@ -1,4 +1,4 @@
-package org.tim.sec7constructors2;
+package org.tim.sec7constructors;
 
 public class Notes2 {
 
@@ -40,6 +40,9 @@ public class Notes2 {
      *
      * 🔹 Q8: Can we have code before super() or this()?
      * ❌ No! First statement must be this() or super().
+     *    Also we can't have this() or super() together
+     *    Java compiler add super() by default to default constructor but
+     *    it doesn't add this() anywhere in code by deafult
      *
      * ------------------------------------------------------------------------------------
      *
@@ -51,6 +54,7 @@ public class Notes2 {
      * | Parameterized Constructor | ✅ (you write it)         | ✅ Yes             | ❌ No                                            |
      *
      * 🔹 Examples:
+     *
      * 🔸 Default Constructor (compiler-generated)
      * class A {
      *     // No constructor written

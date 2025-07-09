@@ -35,7 +35,8 @@ public class P1_PrivateModifier {
      * Also if u have main method inside class A then also inside main method u can access private members and methods
      *
      *
-     * ❌ Scenario 2: Access from another class [another class can be in same package or other package] using object – ❌ Not Allowed
+     * ❌ Scenario 2: Access from another class [another class can be in same package or other package]
+     *                using object – ❌ Not Allowed
      *
      * class A {
      *     private int x = 10;

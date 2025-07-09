@@ -1,4 +1,4 @@
-package org.tim.sec7constructors2;
+package org.tim.sec7constructors;
 
 public class P2_ConstructorOverloaded {
 

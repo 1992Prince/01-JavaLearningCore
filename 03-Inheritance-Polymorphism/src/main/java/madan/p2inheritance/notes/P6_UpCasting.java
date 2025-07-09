@@ -3,7 +3,7 @@ package madan.p2inheritance.notes;
 public class P6_UpCasting {
 
     /**
-     * For Upcasting / Downcasting is it mandtory to have parent child relationship ?
+     * For Upcasting / Downcasting is it mandatory to have parent child relationship ?
      *
      * Bhai, haan, Upcasting aur Downcasting sirf parent-child (inheritance) relationship mein hi possible hai. Yeh Java ka basic rule hai.
      *

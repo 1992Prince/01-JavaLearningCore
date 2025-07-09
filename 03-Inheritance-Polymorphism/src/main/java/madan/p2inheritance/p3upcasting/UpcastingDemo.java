@@ -11,7 +11,7 @@ public class UpcastingDemo {
 
         System.out.println();
 
-        // Upcsting example
+        // Upcasting example
         Animal dog = new Dog();
         dog.setName("Charlie");
         System.out.println(dog.getName()); // Charlie

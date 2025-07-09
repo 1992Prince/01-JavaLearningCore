@@ -64,7 +64,7 @@ public class P2_Overriding {
      * }
      *
      * 🔸 Rule 4: Final Method Cannot Be Overridden
-     * 🔸 Rule 5: Static Method – Method Hiding, Not Overriding
+     * 🔸 Rule 5: Static Method – Method Hiding, Not Overriding [static methods belongs to class and not to objects]
      *
      * class Parent {
      *     static void greet() {

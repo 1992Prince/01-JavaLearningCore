@@ -89,7 +89,7 @@ public class P3_Overloading {
      *     }
      * }
      *
-     * ✅ Overloading main() Method (Yes, it’s possible!)
+     * ✅ Overloading main() Method (Yes, it’s possible!) but JVM will only look for this main method - public static void main(String[] args)
      * public class MainTest {
      *     public static void main(String[] args) {
      *         System.out.println("main(String[]) called");
@@ -101,7 +101,7 @@ public class P3_Overloading {
      *     }
      * }
      *
-     * ✅ Overloading Static Methods
+     * ✅ Overloading Static Methods - yes we can overload static methods
      * class StaticDemo {
      *     static void show(int a) {
      *         System.out.println("int");
