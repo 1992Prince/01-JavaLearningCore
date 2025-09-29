@@ -1,0 +1,129 @@
+Analysis
+----------
+
+
+1) given arrays of nums with an integer val
+2) We need to remove all integers val from array in-place [matalab, same array modify karna hah]
+3) in same array we can remove all values = val by shifting other integers wch are not
+   equal to val in beginning
+4) isme relative order of array will change but that is also specified in question
+5) So all elements i.e. count can be k wch are != integer val will come in first
+   and we need to return k
+
+
+e.g. nums = [3,2,2,3] and val = 3
+     ouptut = 2, nums = [2,2,_,_] or can be [2,2,3,3] if we shift 3 to end
+
+
+        [3, 2, 2, 3]
+    idx- 0  1  2  3
+
+
+Lets try to use 2 pointers approach
+here i will start with 0 and j will start with (nums.length - 1)
+now in 2 pointer approach we have i and j and dono ek aur dusre end me baithe hah
+till here Prince u should be clear
+
+   [3 , 2, 2, 3]
+    i         j
+
+hamari apporach yeh hogi ki check nums[i] == 3 and agar yeh equal hah  then
+swap it with jth index element matalab
+
+lekin if we follow this approach if nums[j] is also same val i.e. 3 then
+again 3 will come in ith index
+
+and hamara plan hah all 3 should move to end of array
+
+isse situation ko handle karne k lie , follow below approach
+
+********************************************************************
+
+Approach (2-pointer swap method):
+
+    Start pointer (i) = 0, End pointer (n) = last index.
+
+    Jab tak i <= n:
+
+    Agar nums[i] == val, iska matlab ye element remove karna hai →
+    usko nums[n] se swap kar de, aur n-- kar de (kyunki end se ek element eliminate ho gaya).
+    ⚠️ Is case me i++ mat karna, kyunki jo naya element swap hoke aaya hai nums[i] me,
+       usko abhi check karna bacha hai.[swaped element at ith index can again be 3 - above example]
+       wch needs to be removed, isiliye decrement j but don't increment i
+
+    Agar nums[i] != val, toh safe hai → i++ kar de.
+
+*******************************************************************
+
+so agar hamara nums array hah
+
+Input: nums = [3,2,2,3], val = 3
+Output: 2, nums = [2,2,_,_]
+
+ya
+
+Input: nums = [0,1,2,2,3,0,4,2], val = 2
+Output: 5, nums = [0,1,4,0,3,_,_,_]
+
+then below code will work: i and j are at end postions of array so we are using condition (i<j)
+and we are incrementing and decrementing
+
+  int i = 0;
+        int j = nums.length - 1;
+
+        while (i < j) {
+            if (nums[i] == val) {
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+                j--;
+            } else { // validating nums[i] != val
+                i++;
+            }
+        }
+
+        return i+1;
+    }
+
+
+lekin above code will now work for use case
+
+nums = [1] and val = 1
+in this case output will be ->
+nums = [1] and return should be 0 since there are no eleemnts wch are not equivalent to val
+this is edge case and to handle it lets tweak above solution
+
+we need to use condition (i<=j) and remove returning i+1 [Now question will arise i + 1 kaise return kare]
+actually iss ki jarurat nae padegi if u r using condition (i<=j)
+
+lets visualize below example and at one point i == j ho jaegi
+and then if nums[i] != val then again i will be incremented jo tu pehle i+1 return kar raha tha,
+iss condtion me cover ho gaya
+
+[3, 2, 2, 3]
+ i     j
+
+and when i == j and nums[i] == val => yeh edge case cover karega i.e.
+usecase nums = [1] and val = 1
+and in this case while loop chalgea, swap bhi hoga lekin i increment nae hoga
+jisse returned i value will be 0
+
+
+
+
+        int i = 0;
+        int j = nums.length - 1;
+
+        while (i <= j) {
+            if (nums[i] == val) {
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+                j--;
+            } else { // validating nums[i] != val
+                i++;
+            }
+        }
+
+        return i;
+    }

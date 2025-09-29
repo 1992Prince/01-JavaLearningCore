@@ -1,0 +1,26 @@
+Approach [Refer video for understanding - https://www.youtube.com/watch?v=Eh2gTUHL8Hs]
+
+Here we need to perform stack operations using 2 queues operations only
+[2 queues is specified in question]
+
+Step1 - So create 2 queues and initialize them in constructor
+Step2 - Now in add operation, stack also add elements linear and similarly queue also
+        add elements linear,so here we just need to use offer() method of queue
+        to add elements
+
+Step3 - in pop operation, stack follow LIFO and queue follows FIFO.
+        So here we will iterate our first queue till 2nd last element and add these
+        elements into another queue.
+        Elements will be added in another queue in same order.
+        And then pop out last element and store it in variable
+        now assign all queue2 elements into queue1 and return popped element
+
+        Note - here in for loop to avoid confusions instead of using queue1.size, calculate
+               this earlier and then keep that variable.
+               Bcoz u r iterating same queue and inside loop u will remove elements from it
+
+Step4 - in peek operation, follow steps of pop pattern but instead of popping out
+        last element from queue1, just keep it in variable using peek fun and then
+        add this also to queue2 so that none element is lost
+
+Step5 - in empty operation - u can directly use isEmpty() method of queue

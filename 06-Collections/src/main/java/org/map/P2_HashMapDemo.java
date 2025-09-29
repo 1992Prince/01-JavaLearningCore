@@ -14,9 +14,11 @@ public class P2_HashMapDemo {
         Map<Integer, String> map = new HashMap<>();
         map.put(1,"Red Apple");
 
+
         Map<Integer, String> map2 = new HashMap<>();
         map2.putAll(map); // copy all from map to map2
         System.out.println("map2 - " + map2); // map2 - {1=Red Apple}
+
 
         map.clear(); // removes everything
         System.out.println(map); // {}
@@ -30,10 +32,14 @@ public class P2_HashMapDemo {
 
         System.out.println();
 
+
+
         // 🔹 8. Key, Value, Entry Iteration
         // we can't use iterator() method directly on map object
 
         map2.put(2, "Banana");
+
+
 
         // retrieving only all keys of map
         Set<Integer> map2Keys = map2.keySet();
@@ -67,6 +73,10 @@ public class P2_HashMapDemo {
          * 2 -> Banana
          */
 
+        /**
+         * Since u fetched via getKeys(), getValues() and entrySet()
+         * Now u can call iterator() object on all 3
+         */
 
 
 

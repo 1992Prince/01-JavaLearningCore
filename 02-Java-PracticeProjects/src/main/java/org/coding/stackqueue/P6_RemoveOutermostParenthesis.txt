@@ -1,0 +1,204 @@
+❓ Valid Parentheses String kya hota hai?
+    - Ek valid parentheses string woh hoti hai jismein:
+    - Har opening bracket '(' ka ek matching closing bracket ')' ho
+    - Brackets sahi sequence mein ho (properly nested)
+
+✅ Examples of valid strings:
+
+    "()" → ek opening aur closing → ✅ valid
+    "(())" → nested hai, but sahi se match ho raha hai → ✅
+    "()()" → do alag valid parts, dono match ho rahe → ✅
+    "(()(()))" → nested + matched → ✅
+
+❌ Invalid examples:
+
+    "(()" → ek '(' ka matching ')' nahi → ❌
+    "())" → ek extra ')' → ❌
+    "(()))(()" → multiple unmatched brackets → ❌
+
+
+-----------------------------------------------------
+
+🔹 Line:
+"A valid parentheses string is either empty "", "(" + A + ")", or A + B, where A and B are
+valid parentheses strings"
+
+    - Tu pehle hi samajh gaya:
+        - "" → empty string → valid
+        - "(" + A + ")" → ek bracket ke andar valid string → valid
+
+🔥 Ab confusion wala part:
+
+    A + B kya matlab?
+    Yeh line keh rahi hai:
+
+        - Agar A ek valid string hai
+        - Aur B bhi ek valid string hai
+        - To A + B bhi valid hoga
+
+    Yaani: Do valid parentheses strings ko jodna bhi valid hota hai
+
+🔍 Example 1:
+A = "()", B = "()"
+Then:
+A + B = "()" + "()" = "()()" → ✅ valid
+
+🔍 Example 2:
+A = "(())", B = "(()())"
+Then:
+A + B = "(())(()())" → ✅ valid
+
+❌ Galat samajhna:
+Agar A ya B valid nahi hain, toh A + B bhi valid nahi hoga
+
+Example:
+A = "(()" (not valid), B = "())" (not valid)
+A + B = "(()())" — looks valid but A and B individually valid nahi the → not allowed as
+                                                                         per this rule.
+
+
+🔹 Line:
+For example, "", "()", "(())()", and "(()(()))" are all valid parentheses strings.
+
+✅ 1. "" → Empty string
+    Yeh toh seedha rule 1 hai:
+    Empty string is valid ✅
+
+✅ 2. "()" → Ek opening aur closing
+    Ye "(" + "" + ")" ka example hai
+    A = "" → valid
+    So "(" + A + ")" = "()" → ✅ valid
+
+✅ 3. "(())()"
+    Do parts mein todh sakte ho:
+
+    A = "(())" → valid
+    B = "()"   → valid
+    A + B = "(())()" → ✅ valid via rule: A + B
+
+
+✅ 4. "(()(()))"
+
+Thoda complex dikhta hai, lekin brackets dekh:
+
+    Outer ( )
+    Inside: "()(()())"
+
+Properly nested hai, har ( ka matching ) hai
+→ ✅ valid via rule: "(" + A + ")"
+
+
+🔥 Tera Sawal:
+"(()(()))" → isme outer ( ) hai, andar jo bacha wo A hai
+To kya andar wale ko "A + B" mein todna chahiye ya nahi?
+
+🧠 Answer:
+Nahi todna chahiye — jab tak wo pura part ek complete, valid, nested structure hai
+Toh usse ek primitive maan lete hain.
+
+🧨 Rule yaad rakh:
+Agar pura string ek hi nested group hai (like "(()(()))"),
+aur usme koi aisa point nahi jahan tu beech se A + B mein todh sake,
+to mat todh — ye ek primitive part hai.
+
+❌ "(())()" — Not primitive
+Tu ise tod sakta hai:
+    A = "(())" → valid
+    B = "()" → valid
+
+Dono parts non-empty aur valid hai → To ye A + B ke form mein likha ja sakta hai
+→ So ye not primitive
+
+✅ Rule Summary:
+| String       | Can split into A + B?    | Primitive? |
+| ------------ | ------------------------ | ---------- |
+| `"(()(()))"` | ❌ No                     | ✅ Yes      |
+| `"(())()"`   | ✅ Yes (A=`(())`, B=`()`) | ❌ No       |
+
+
+Agar tu primitive ko detect karna seekh gaya, to agla step aasan ho jata hai (outermost bracket remove karna).
+
+
+
+
+
+🔹 Line:
+A valid parentheses string s is primitive if it is nonempty, and there does not exist a way to
+split it into s = A + B, with A and B nonempty valid parentheses strings.
+
+🔍 Breakdown:
+Yeh line keh rahi hai:
+Ek valid string "primitive" tab kehlata hai jab:
+
+    1. ❌ Empty nahi ho
+
+        - Matlab "" primitive nahi hai
+        - "()" jaise non-empty hona chahiye
+
+    2. ❌ Use A + B mein split nahi kiya ja sakta ho,
+
+            Jahan A aur B dono:
+
+                - Non-empty ho
+                - Aur valid strings ho
+
+
+✅ Primitive ke Examples:
+
+1. "()"
+Empty nahi hai
+
+A + B mein split nahi ho sakta (sirf 2 characters hain)
+→ ✅ Primitive
+
+2. "(())"
+Nested hai
+
+Isme koi beech ka aisa point nahi hai jahan tu valid A + B bana sake
+→ ✅ Primitive
+
+3. "(()(()))"
+Nested hai
+
+Beech mein A + B split possible nahi
+→ ✅ Primitive
+
+
+❌ Not Primitive ke Examples:
+1. "()()"
+Tu ise split kar sakta hai:
+
+A = "()", B = "()" → both valid
+→ ❌ Not primitive
+
+2. "(())()"
+A = "(())" → valid
+
+B = "()" → valid
+→ ❌ Not primitive
+
+========================================================================
+
+What we need to do in problem, suppose below is given string
+
+0 1 1 1 1 0 0 1 1 0
+( ( ) ( ) ) ( ( ) )
+
+output should be - remove 0 level parenthesis - ( ) ( ) ( )
+
+above we have categoriezed parenthesis into 0,1,2 level parenthesis
+outermost parenthesis will come under 0 level string
+second inner parenthesis will come under 1 level string
+third inner parenthesis will come under 2 level string
+
+
+ex 2-
+0 1 1 1 1 0 0 1 1 0 0 1 1 1 2 2 1 0
+( ( ) ( ) ) ( ( ) ) ( ( ) ( ( ) ) )
+
+output should be - remove 0 level parenthesis - ( ) ( ) ( ) ( ) ( ( ) )
+
+ex 3 -
+0 0 0 0
+( ) ( )  -> after remove all 0 level parenthisis - output is empty string ""
+

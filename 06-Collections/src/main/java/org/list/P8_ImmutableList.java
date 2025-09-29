@@ -27,6 +27,8 @@ public class P8_ImmutableList {
 
         System.out.println();
 
+
+
         /**
          * ✅ Immutable List in Java 9+
          * Java 9 introduced factory methods in List interface itself
@@ -48,15 +50,22 @@ public class P8_ImmutableList {
 
         System.out.println();
 
+
+
         /**
          * ✅ Convert List.of() to Modifiable List
          *
          * also u can do
          * List<String> modifiableList = new ArrayList<>(List.of("A", "B", "C"));
          */
+
+
         List<String> immutableList = List.of("A", "B", "C");
+
         // ✅ Create modifiable list from it
         List<String> modifiableList = new ArrayList<>(immutableList);
+
+
         // Now you can modify it
         modifiableList.add("D");
         modifiableList.remove("B");
@@ -64,9 +73,13 @@ public class P8_ImmutableList {
 
         System.out.println(modifiableList); // [Z, C, D]
 
+
+
         System.out.println();
         System.out.println("------------✅ 1. Arrays.asList() – Java SE 5+----------");
         System.out.println();
+
+
 
         List<String> list = Arrays.asList("a", "b", "c");
 
@@ -77,6 +90,8 @@ public class P8_ImmutableList {
          * Allows null values.
          * List is mutable, but size is fixed.
          */
+
+        
         // ❗ Modifying Example:
         list.set(0, "x");       // ✅ allowed
         // list.add("d");          // ❌ throws UnsupportedOperationException

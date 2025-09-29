@@ -11,6 +11,7 @@ public class CustomArrayListDemo {
         // ✅ Step 2: Create list
         List<Student> students = new ArrayList<>();
 
+
         // ✅ Step 3: Add students
         students.add(new Student("Aman", 85));
         students.add(new Student("Priya", 95));
@@ -18,9 +19,11 @@ public class CustomArrayListDemo {
         students.add(new Student("Neha", 85));
         students.add(new Student("Zoya", 60));
 
+
         // ✅ Original List
         System.out.println("Original List:");
         students.forEach(System.out::println);
+
 
         /**
          * Original List:
@@ -31,12 +34,15 @@ public class CustomArrayListDemo {
          * Zoya - 60
          */
 
+
         System.out.println();
+
 
         // ✅ Sort by marks descending
         students.sort(Comparator.comparingInt((Student s) -> s.marks).reversed());
         System.out.println("\nSorted by marks (descending):");
         students.forEach(System.out::println);
+
 
         /**
          * Sorted by marks (descending):
@@ -48,6 +54,8 @@ public class CustomArrayListDemo {
          */
 
         System.out.println();
+
+
 
         // ✅ Sort by marks ascending
         students.sort(Comparator.comparingInt(s -> s.marks));
@@ -63,6 +71,8 @@ public class CustomArrayListDemo {
          */
 
         System.out.println();
+
+
 
         /**
          * Why we are doing casting in reversed method above?
@@ -84,7 +94,12 @@ public class CustomArrayListDemo {
          * students.sort(Comparator.comparingInt(s -> s.marks).reversed());
          */
 
+
+
         System.out.println();
+
+
+
         // ✅ Sort by name alphabetically
         students.sort(Comparator.comparing(s -> s.name));
         System.out.println("\nSorted by name:");
@@ -98,8 +113,9 @@ public class CustomArrayListDemo {
          * Zoya - 60
          */
 
+
         System.out.println();
-        //  // ✅ Sort by name alphabetically reversed
+        // ✅ Sort by name alphabetically reversed
         //students.sort(Comparator.comparing(Student::getName).reversed());
         // or
         students.sort(Comparator.comparing((Student s) -> s.name).reversed());

@@ -1,0 +1,89 @@
+✅ Queue
+-----------------------------------------------------------
+Definition: Linear FIFO (First In First Out) data structure
+
+Operations:
+        enqueue(x) → Add element at the back
+        dequeue() → Remove element from the front
+        peek() or front() → View front element (without removing)
+
+🔁 Real-life Examples:
+        Ticket counter (first come, first served)
+        OS task/process scheduling
+        Print queue in printers
+
+
+✅ Stack
+-----------------------------------------------------------
+Definition: Linear LIFO (Last In First Out) data structure
+
+Operations:
+        push(x) → Add element at the top
+        pop() → Remove top element
+        peek() or top() → View top element (without removing)
+
+🔁 Real-life Examples:
+        Stack of books
+        Undo/Redo functionality
+        Browsing history (Back/Forward)
+        Recursive calls
+
+
+🔎 Why Do We Need Stack & Queue?
+-----------------------------------------------------------
+    - To organize data logically as per problem needs
+    - Maintain order of operations (LIFO / FIFO)
+    - Improve time & space efficiency
+
+
+🧠 Use Cases:
+| Problem                       | DS Used |
+| ----------------------------- | ------- |
+| Recursion                     | Stack   |
+| Level order traversal (Trees) | Queue   |
+| Breadth-First Search (BFS)    | Queue   |
+| Depth-First Search (DFS)      | Stack   |
+
+
+💻 Stack & Queue in Programming
+-----------------------------------------------------------
+
+✅ JavaScript:
+        Array behaves like Stack:
+
+    let arr = [];
+    arr.push(10);       // [10]
+    arr.push(20);       // [10, 20]
+    arr.pop();          // returns 20 → [10]
+
+✅ Java:
+        Stack: java.util.Stack class (child of Vector)
+
+        Queue: Queue & Deque interfaces
+        Implemented by: LinkedList, ArrayDeque, etc.
+
+
+❓ If Arrays Exist, Why Stack/Queue?
+-----------------------------------------------------------
+    - Arrays: General-purpose, random access allowed
+
+    - Stack/Queue: Restricted access only
+
+        - Stack: Only from top
+        - Queue: Only from ends (front/rear)
+
+    - Helps enforce discipline (like recursion, scheduling logic)
+
+    Think of Stack/Queue as:
+        “Array with strict rules”
+
+📊 Data Structures Comparison
+-----------------------------------------------------------
+
+| Feature         | Stack        | Queue      | Array           | LinkedList   | HashMap     |
+| --------------- | ------------ | ---------- | --------------- | ------------ | ----------- |
+| Order           | LIFO         | FIFO       | Indexed         | Sequential   | Key-based   |
+| Random Access   | ❌           | ❌         | ✅              | ❌          | ✅          |
+| Insertion/Del   | Top only     | Ends only  | Anywhere        | Anywhere     | Key-based   |
+| Time Complexity | O(1)         | O(1)       | Varies          | O(1) insert  | O(1) avg    |
+| Use Case        | Backtracking | Scheduling | General storage | Dynamic list | Fast lookup |

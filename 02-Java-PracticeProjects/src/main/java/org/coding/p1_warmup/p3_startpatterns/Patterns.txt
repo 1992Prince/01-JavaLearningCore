@@ -1,0 +1,184 @@
+NOTE -
+Before starting remember in printing star pattern we are gonna use mostly 2 nested for loops
+
+    outer for loop is for printing no of rows for stars like below in Pattern1, 4 rows are there
+    that will be printed via outer for loop
+
+    and
+
+    inner for loop is for printing no of stars in each row
+
+--------------------------------------------------------------------------------------------------
+
+Pattern1
+
+* * * *
+* * * *
+* * * *
+* * * *
+
+Approach -
+Here we can see 4 rows of stars are there so we need to iterate 4 times in outer for loop and
+in each row we are printing 4 stars so inner for loop will be iterated 4 times
+
+Inner loop is printing all 4 stars in same row so we need to make sure after printing first star
+it should not come to next line and once all 4 stars are printed in same line then
+break the line
+
+Also I will give one space between stars, if u don't want then u can remove it and then your
+star pattern wll look like
+
+****
+****
+****
+****
+
+and for both for loops, I will start i and j variables from 1 till <=4
+
+
+--------------------------------------------------------------------------------------------------
+
+Pattern2
+
+*
+* *
+* * *
+* * * *
+
+We can see above
+we have 4 rows of stars so outer for loop will iterate from i -> 1 to 4
+and
+in each row we have that no of stars like
+first row have 1 star
+second row have 2 stars
+third row have 3 stars
+fourth row have 4 stars
+
+so our logic will be
+iterate outer for loop from i-> 1 to 4 and then
+ierate inner for loop from j -> 1 to <=i
+
+
+--------------------------------------------------------------------------------------------------
+
+Pattern3
+
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+
+here we have 5 rows, so our outer loop will iterate 5 times
+Remember printing stars or num is done by inner loop
+so don't worry about if * is printing or same num is geeting printed in each row
+outer loop don't print anything, so just see no of rows we need to print either num or star ,
+we need to iterate it that no of times and so
+here our outer loop will iterate 5 no of times
+
+Now analyse each row is getting printed 1,2,3 or some num instead of stars
+first row is printing till 1 num
+second row is printing till 2 num
+third row is printing till 3 num
+
+so here we need to print j variable and j should be less or = to i
+
+if we don't use login j <= i and j <=4 then in each row 1 2 3 4 will be printed
+wch we don't want
+
+--------------------------------------------------------------------------------------------------
+
+Pattern4
+
+1
+2 2
+3 3 3
+4 4 4 4
+5 5 5 5 5
+
+Here we have 5 rows so our outer loop will be iterated 5 no of times
+
+and in each row we have that no of numbers printed so again we will use logic
+j<=i for inner loop
+
+but here we are printing same number instead of 1 2 3 in increasing order i.e.
+for first row , 1 is printed
+for second row, 2 2 is printed
+for third row, 3 3 3 is printed
+
+and our j is changing in every iteration but our i is same so this time we
+will print i instead of j
+
+
+-------------------------------------------------------------------------------------
+
+Pattern 5
+++++++++++++
+
+1 2 3 4 5 6 7
+1 2 3 4 5 6
+1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2
+1
+
+
+✅ We need to print a right-angled triangle in reverse order.
+🧠 How It Works:
+
+    - rows = 7 → We start from 7 numbers in first row.
+    - Outer loop i goes from 7 down to 1 → controls row count.
+    - Inner loop j goes from 1 to i → prints numbers.
+    - System.out.print() prints on same line, System.out.println() moves to next line.
+
+
+-------------------------------------------------------------------------------------
+
+Pattern 6
+++++++++++++
+
+* * * * *
+* * * *
+* * *
+* *
+*
+
+
+-------------------------------------------------------------------------------------
+
+Pattern 7
+++++++++++
+
+- - - - *
+- - - * *
+- - * * *
+- * * * *
+* * * * *
+
+
+-------------------------------------------------------------------------------------
+
+Pattern 8
+++++++++++
+
+        *
+      * *
+    * * *
+  * * * *
+* * * * *
+
+-------------------------------------------------------------------------------------
+
+Pattern 9
++++++++++++++
+
+1
+1 0
+1 0 1
+1 0 1 0
+1 0 1 0 1
+1 0 1 0 1 0
+
+🔥 This is a binary triangle pattern where numbers alternate between 1 and 0 in every row.
+

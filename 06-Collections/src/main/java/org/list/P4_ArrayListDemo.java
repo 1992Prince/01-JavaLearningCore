@@ -7,6 +7,16 @@ import java.util.List;
 
 public class P4_ArrayListDemo {
 
+    /**
+     * srch element via contains()
+     * srch collection via containsAll()
+     * indexOf
+     * lastindexOf()
+     * subList(firstidx,lastidx)
+     * isEmpty()
+     * convert list to array
+     *
+     */
     public static void main(String[] args) {
 
 
@@ -19,6 +29,7 @@ public class P4_ArrayListDemo {
         namesList.add("Mutthu");
         namesList.add("Brijesh");
         System.out.println(namesList); // [Arun, Brijesh, Pathak, Sunita, Mutthu, Brijesh]
+
 
         /**
          * SEARCH A VALUE IS AVAILABLE OR NOT IN LIST
@@ -34,6 +45,7 @@ public class P4_ArrayListDemo {
          * isAnoupPresent : false
          */
 
+
         /**
          * SEARCH IF GIVEN COLLECTION IS PRESENT
          */
@@ -46,11 +58,16 @@ public class P4_ArrayListDemo {
         System.out.println("Modified List : " +namesList);
         // Modified List : [Arun, Brijesh, apple, pikachu, Pathak, Sunita, Mutthu, Brijesh]
 
+
+
         // CHECK IF COLLECTION  LIST1 AND LIST2 ARE PRESENT IN NAMESLIST
         boolean list1Check = namesList.containsAll(list1);
         boolean list2Check = namesList.containsAll(list2);
         System.out.println(list1Check +" " + list2Check); // true false
         System.out.println();
+
+
+
 
         /**
          * INDEXOF vs LASTINDEXOF Methods
@@ -64,6 +81,8 @@ public class P4_ArrayListDemo {
         int idx2 = namesList.lastIndexOf("Brijesh");
         System.out.println(idx0 + " " + idx1 + " " + idx2); // -1 1 7
         System.out.println();
+
+
 
         /**
          * subList(firstidx,lastidx) - lastidx is non-inclusive
@@ -80,6 +99,8 @@ public class P4_ArrayListDemo {
         // List<String> namessublist3 = namesList.subList(1,namesList.size()+1); // will throw  Exception in thread "main" java.lang.IndexOutOfBoundsException
 
 
+
+
         System.out.println();
         /**
          * ISEMPTY - check is arraylist is empty or not
@@ -87,6 +108,9 @@ public class P4_ArrayListDemo {
          */
         System.out.println("ISEMPTY? - " + namesList.isEmpty()); // ISEMPTY? - false
         System.out.println();
+
+
+
 
         /**
          * CONVERT ARRAYLIST TO ARRAY
@@ -103,6 +127,8 @@ public class P4_ArrayListDemo {
          * - You want to handle the array as Object[].
          */
 
+
+
         ArrayList<String> namesList3 = new ArrayList<>();
         namesList3.add("Arun");
         namesList3.add("Brijesh");
@@ -116,6 +142,8 @@ public class P4_ArrayListDemo {
         }
 
         System.out.println();
+
+
 
         /**
          * ✅ 2. toArray(T[] a) — Generic Version
@@ -137,6 +165,7 @@ public class P4_ArrayListDemo {
         namesList4.add("Brijesh");
         namesList4.add("Pikachu");
 
+
         // Convert to String[]
 
         String[] strArr = namesList4.toArray(new String[0]);
@@ -147,11 +176,7 @@ public class P4_ArrayListDemo {
             System.out.print(name + " "); // No casting needed // OUTPUT- Arun Brijesh Pikachu
         }
         System.out.println();
-
-
-
-
-        //pending -  stream, sort, equals,
+        
 
 
 

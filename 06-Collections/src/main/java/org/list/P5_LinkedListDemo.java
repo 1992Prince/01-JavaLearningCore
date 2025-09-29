@@ -11,6 +11,9 @@ public class P5_LinkedListDemo {
         // ✅ Create LinkedList
         LinkedList<String> list = new LinkedList<>();
 
+
+
+
         // ✅ List Interface Methods (inherited by LinkedList)
 
         // Add elements
@@ -21,32 +24,47 @@ public class P5_LinkedListDemo {
         list.add(1, "Mango"); // Insert at index
         System.out.println("List after add: " + list); // List after add: [Apple, Mango, Banana, Cherry, Banana]
 
+
         // Get element by index
         System.out.println("Element at index 2: " + list.get(2)); // Element at index 2: Banana
+
+
 
         // Set (replace) element
         list.set(2, "Blueberry");
         System.out.println("List after set: " + list); // List after set: [Apple, Mango, Blueberry, Cherry, Banana]
 
+
+
         // Remove by index
         list.remove(1);
         System.out.println("List after remove(index): " + list); // List after remove(index): [Apple, Blueberry, Cherry, Banana]
+
+
 
         // Remove by value
         list.remove("Banana");
         System.out.println("List after remove(value): " + list); // List after remove(value): [Apple, Blueberry, Cherry]
 
+
+
         // Check if contains
         System.out.println("Contains 'Apple': " + list.contains("Apple")); // Contains 'Apple': true
+
+
 
         // IndexOf and LastIndexOf
         list.add("Apple");
         System.out.println("Index of Apple: " + list.indexOf("Apple"));              // Index of Apple: 0
         System.out.println("Last index of Apple: " + list.lastIndexOf("Apple")); // Last index of Apple: 3
 
+
+
         // Size and isEmpty
         System.out.println("Size: " + list.size());        // Size: 4
         System.out.println("Is Empty: " + list.isEmpty()); // Is Empty: false
+
+
 
         // Iteration (for-each)
         System.out.print("Iterate: ");
@@ -55,19 +73,29 @@ public class P5_LinkedListDemo {
         }
         System.out.println();
 
+
+
         // Sublist
         System.out.println("Sublist (1 to 3): " + list.subList(1, 3)); // Sublist (1 to 3): [Blueberry, Cherry]
+
+
 
         // Clear
         LinkedList<String> copy = new LinkedList<>(list); // keep copy for LinkedList methods
         list.clear();
         System.out.println("After clear: " + list); // After clear: []
 
+
+
+
+
         System.out.println();
         System.out.println();
 
+        // Ignore below ones.
         System.out.println("----------✅ LinkedList-Specific Methods (Not in ArrayList)--------------");
         System.out.println();
+
 
         LinkedList<String> ll = copy;
         System.out.println("copy - " + copy); // copy - [Apple, Blueberry, Cherry, Apple]
@@ -77,6 +105,8 @@ public class P5_LinkedListDemo {
         System.out.println("After addFirst & addLast: " + ll);
         // After addFirst & addLast: [First, Apple, Blueberry, Cherry, Apple, Last]
 
+
+
         System.out.println("getFirst(): " + ll.getFirst()); // getFirst(): First
         System.out.println("getLast(): " + ll.getLast());  // getLast(): Last
 
@@ -84,6 +114,8 @@ public class P5_LinkedListDemo {
         ll.removeLast();
         System.out.println("After removeFirst & removeLast: " + ll);
         // After removeFirst & removeLast: [Apple, Blueberry, Cherry, Apple]
+
+
 
         ll.offer("Offer"); // Add to end
         ll.offerFirst("OfferFirst");

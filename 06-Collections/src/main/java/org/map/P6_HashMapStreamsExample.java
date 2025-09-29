@@ -14,6 +14,7 @@ public class P6_HashMapStreamsExample {
         map.put(104, "Divya");
         map.put(105, "Arun");
 
+
         // ✅ Stream on keySet() — print only keys
         System.out.println("Keys using stream:");
         map.keySet()
@@ -30,6 +31,8 @@ public class P6_HashMapStreamsExample {
 
         System.out.println();
 
+
+
         // ✅ Stream on values() — print only values
         System.out.println("\nValues using stream:");
         map.values()
@@ -45,6 +48,8 @@ public class P6_HashMapStreamsExample {
          */
 
         System.out.println();
+
+
 
         // ✅ Stream on entrySet() — print key-value pairs
         System.out.println("\nKey-Value pairs using stream:");

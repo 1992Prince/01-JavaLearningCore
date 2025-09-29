@@ -33,11 +33,15 @@ public class P6_ALSortMethodDemo {
 
         System.out.println();
 
+
+
         // ✅ 2. Sort Strings in Reverse
         names.sort(Comparator.reverseOrder());
         System.out.println(names); // [Zara, Brijesh, Amit]
 
         System.out.println();
+
+
 
         //✅ 3. Sort Integers Ascending
         List<Integer> nums = new ArrayList<>(List.of(5, 1, 10, 3));
@@ -46,17 +50,23 @@ public class P6_ALSortMethodDemo {
 
         System.out.println();
 
+
+
         // ✅ 4. Sort Integers Descending
         nums.sort(Comparator.reverseOrder());
         System.out.println(nums); // [10, 5, 3, 1]
 
         System.out.println();
 
+
+
         // ✅ 5. Sort by String Length - It sorts the list by string length in ascending order.
         //
         List<String> names2 = new ArrayList<>(List.of("Ram", "Shyam", "A", "Krishna"));
         names2.sort(Comparator.comparingInt(String::length));
         System.out.println(names2); // [A, Ram, Shyam, Krishna]
+
+
 
         /**
          * This is a factory method that returns a comparator which compares integer values derived from each element.
@@ -69,11 +79,17 @@ public class P6_ALSortMethodDemo {
          * names2.sort(Comparator.comparingInt(String::length).reversed());
          */
 
+
+
         System.out.println();
         System.out.println("-------Sorting by String Length in Descending Order----------");
         System.out.println();
 
+
+
         List<String> names3 = new ArrayList<>(List.of("Ram", "Shyam", "A", "Krishna"));
+
+
 
         // 🔁 Sort by string length in DESCENDING order
         names3.sort(Comparator.comparingInt(String::length).reversed());

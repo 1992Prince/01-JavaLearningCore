@@ -1,0 +1,300 @@
+Prompt-
+Give me 15+ advanced Java ArrayList coding interview questions that:
+- Are NOT basic (like just insert, remove, or iterate)
+- Involve important List methods like retainAll, removeAll, removeIf, replaceAll, containsAll, indexOf, lastIndexOf, subList, computeIfAbsent, etc.
+- Include operations like intersection, difference, merging, removing duplicates, filtering based on custom conditions (even numbers, palindromes, same last digit, etc.)
+- Cover both numeric and string-based problems
+- Each question should have:
+   1. Problem statement
+   2. Example input/output
+   3. Java solution using List methods (no just plain arrays)
+- Focus on logic, manipulation, iteration, and best practices
+
+
+1. Intersection with Even Numbers Only
+Problem: Given two lists of integers, find their intersection but keep only even numbers.
+Example:
+
+List1 = [1, 2, 3, 4, 6]
+List2 = [2, 4, 5, 6, 8]
+Output = [2, 4, 6]
+
+-----------------------------------------------------------------
+
+2. Intersection with Palindromes Only
+Problem: Find common strings between two lists that are palindromes.
+Example:
+
+
+List1 = ["madam", "apple", "level"]
+List2 = ["level", "banana", "madam", "noon"]
+Output = ["madam", "level"]
+Solution:
+
+List<String> list1 = new ArrayList<>(Arrays.asList("madam", "apple", "level"));
+List<String> list2 = Arrays.asList("level", "banana", "madam", "noon");
+
+list1.retainAll(list2);
+list1.removeIf(s -> !s.equalsIgnoreCase(new StringBuilder(s).reverse().toString()));
+
+System.out.println(list1);
+
+-----------------------------------------------------------------
+
+3. Merge Two Lists & Remove Duplicates
+
+Problem: Merge two integer lists without duplicates, preserving order.
+
+Example:
+
+List1 = [1, 2, 3, 4]
+List2 = [3, 4, 5, 6]
+Output = [1, 2, 3, 4, 5, 6]
+
+Solution:
+
+List<Integer> list1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+List<Integer> list2 = Arrays.asList(3, 4, 5, 6);
+
+for (Integer num : list2) {
+    if (!list1.contains(num)) {
+        list1.add(num);
+    }
+}
+System.out.println(list1);
+
+
+-----------------------------------------------------------------
+
+
+4. Difference of Two Lists (Divisible by 3)
+
+Problem: Find elements in list1 not in list2 and divisible by 3.
+
+Example:
+List1 = [3, 6, 9, 12, 15]
+List2 = [6, 12]
+Output = [3, 9, 15]
+-----------------------------------------------------------------
+
+
+5. Unique Common Elements Without retainAll()
+
+Problem: Find unique common elements in two lists without using retainAll().
+
+Example:
+List1 = [1, 2, 2, 3]
+List2 = [2, 3, 4]
+Output = [2, 3]
+
+-----------------------------------------------------------------
+
+
+6. All Pairs with Given Sum
+Problem: From a list, find all unique pairs whose sum equals target.
+Example:
+
+List = [1, 2, 3, 4, 5, 6], target = 7
+Output = [(1,6), (2,5), (3,4)]
+Solution:
+
+
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6);
+int target = 7;
+
+for (int i = 0; i < list.size(); i++) {
+    for (int j = i + 1; j < list.size(); j++) {
+        if (list.get(i) + list.get(j) == target) {
+            System.out.println("(" + list.get(i) + ", " + list.get(j) + ")");
+        }
+    }
+}
+
+-----------------------------------------------------------------
+
+7. Remove All Odd Numbers
+
+Problem: Remove odd numbers from a list.
+
+Example:
+
+Input = [1, 2, 3, 4, 5]
+Output = [2, 4]
+Solution:
+
+List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+list.removeIf(n -> n % 2 != 0);
+System.out.println(list);
+
+-----------------------------------------------------------------
+
+
+8. First Repeated Element
+
+Problem: Find first element that repeats.
+
+Example:
+
+Input = [1, 2, 3, 2, 4, 1]
+Output = 2
+Solution:
+
+List<Integer> list = Arrays.asList(1, 2, 3, 2, 4, 1);
+for (Integer n : list) {
+    if (list.indexOf(n) != list.lastIndexOf(n)) {
+        System.out.println(n);
+        break;
+    }
+}
+
+-----------------------------------------------------------------
+
+9. Rotate a List
+
+Problem: Rotate right by k positions.
+
+Example:
+
+Input = [1, 2, 3, 4, 5], k=2
+Output = [4, 5, 1, 2, 3]
+
+Solution:
+
+List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+int k = 2;
+int size = list.size();
+
+List<Integer> rotated = new ArrayList<>();
+rotated.addAll(list.subList(size - k, size));
+rotated.addAll(list.subList(0, size - k));
+
+System.out.println(rotated);
+
+-----------------------------------------------------------------
+
+10. Cartesian Product
+
+Problem: Generate all pairs from two lists.
+
+Example:
+
+List1 = [1, 2], List2 = ["A", "B"]
+Output = [(1, A), (1, B), (2, A), (2, B)]
+Solution:
+
+List<Integer> list1 = Arrays.asList(1, 2);
+List<String> list2 = Arrays.asList("A", "B");
+
+for (Integer i : list1) {
+    for (String s : list2) {
+        System.out.println("(" + i + ", " + s + ")");
+    }
+}
+
+-----------------------------------------------------------------
+
+11. Filter Strings by Length
+Problem: Keep only strings with length > 3.
+Example:
+
+ini
+Copy
+Edit
+Input = ["cat", "tree", "hi"]
+Output = ["tree"]
+Solution:
+
+java
+Copy
+Edit
+List<String> list = new ArrayList<>(Arrays.asList("cat", "tree", "hi"));
+list.removeIf(s -> s.length() <= 3);
+System.out.println(list);
+12. Replace All Elements with Their Square
+Problem: Square each integer in list.
+Example:
+
+ini
+Copy
+Edit
+Input = [1, 2, 3]
+Output = [1, 4, 9]
+Solution:
+
+java
+Copy
+Edit
+List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3));
+list.replaceAll(n -> n * n);
+System.out.println(list);
+13. Group Strings by First Letter
+Problem: Group strings into Map based on first letter.
+Example:
+
+ini
+Copy
+Edit
+Input = ["apple", "ant", "bat"]
+Output = {a=[apple, ant], b=[bat]}
+Solution:
+
+java
+Copy
+Edit
+List<String> list = Arrays.asList("apple", "ant", "bat");
+Map<Character, List<String>> map = new HashMap<>();
+
+for (String s : list) {
+    char first = s.charAt(0);
+    map.computeIfAbsent(first, k -> new ArrayList<>()).add(s);
+}
+System.out.println(map);
+14. Reverse Without Collections.reverse()
+Problem: Reverse list manually.
+Example:
+
+ini
+Copy
+Edit
+Input = [1, 2, 3]
+Output = [3, 2, 1]
+Solution:
+
+java
+Copy
+Edit
+List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3));
+for (int i = 0, j = list.size() - 1; i < j; i++, j--) {
+    Integer temp = list.get(i);
+    list.set(i, list.get(j));
+    list.set(j, temp);
+}
+System.out.println(list);
+15. Intersection Based on Last Digit
+Problem: Find numbers common in two lists that have same last digit.
+Example:
+
+ini
+Copy
+Edit
+List1 = [12, 25, 30]
+List2 = [42, 55, 70]
+Output = [12, 25, 30]
+Solution:
+
+java
+Copy
+Edit
+List<Integer> list1 = Arrays.asList(12, 25, 30);
+List<Integer> list2 = Arrays.asList(42, 55, 70);
+
+List<Integer> result = new ArrayList<>();
+for (Integer n1 : list1) {
+    for (Integer n2 : list2) {
+        if (n1 % 10 == n2 % 10) {
+            result.add(n1);
+            break;
+        }
+    }
+}
+System.out.println(result);

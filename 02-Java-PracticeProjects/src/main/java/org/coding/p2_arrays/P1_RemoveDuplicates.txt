@@ -1,0 +1,78 @@
+1) Observations (jo turant nazar aana chahiye)
+-------------------------------------------------------
+
+- Array sorted hai (non-decreasing) — isi wajah se same elements contiguous (ek ke baad ek) milenge.
+                                      Yeh sabse important observation hai.
+                                      even duplicates elements bhi seq me milenge
+
+- Humko in-place duplicates hataane hain — matlab extra array allowed nahi (constant extra space desired).
+
+  Output: return k = number of unique elements, aur input nums ko modify karna hai taaki pehle k positions
+                   me unique elements ho, order same rahe.
+
+delete below line
+- Because array sorted, agar nums[i] != nums[i-1] => new unique element.
+
+
+2) Possible solution approaches (short)
+--------------------------------------------------------
+
+Naive (extra memory)/Brute Force : Use set/list to collect uniques, then overwrite nums.
+                                   Time O(n), extra O(n). Easy but not in-place (violates constraints usually).
+
+Two-pointer (best / expected): O(n) time, O(1) extra — recommended.
+
+
+------------------------------------------------------------------------------------------
+
+yaha hum 2 pointer apporach follow karenge and 2 variables honge i and j
+every first element in array is uniqe if thta array is not empty
+isiliye i will be starting from 0 and j -> 1 to (n-1)
+j ko increase karna hah by 1 to traverse complete array
+jab bhi j icrease karenge we will check agar nums[i] == nums[j] then skip and increase j pointer
+
+and if nums[i] != nums[j] then sab se pehle increment i , then nums[j] ki value nums[i] me copy karo
+i ko increament isiliye kar rahe hah kyu ki i points to only last unique elments in array
+NOTE - i ko increment karke k hi nums[j] ki value copy karni hah
+
+once j will traverse and iterate each element of array then all unique elements of array will be brought in begining
+here we are not shifting any duplicate elements to RHS but we are bringing unique elments to
+LHS by overriding duplicate elements[Y i am telling u bcoz final array dekh k lagega ki duplicate
+elemnts RHS side shift hue hah]
+
+NOTE - i and j both are iterating from LHS to RHS of array
+
+and at the end we will return i kyu ki this will give actual count of uinuqe elements in array
+
+[1,1,1,2,2,2,3,3,3,3,4,4]
+ 0 1 2 3 4 5 6 7 8 9 10 11
+
+agar nums[i] == nums[j] then skip and increase j pointer
+
+when i = 0, j = 1 -> skip
+when i = 0, j = 2 -> skip
+
+when i = 0, j = 3 and  nums[i] != nums[j], so increment i -> 0 to 1 and do nums[i] = nums[j]
+i ko increment karne k baad nums[i] me nums[j] ki value copy kar do - [1,2,1,2,2,2,3,3,3,3,4,4]
+
+now
+
+i = 1, j=3 and - skip
+i = 1, j=4 and - skip
+i = 1, j=5 and - skip
+
+i = 1, j=6 and - and  nums[i] != nums[j], i new value = 2 and nums[j] ki value nums[i] me copy karo i.e.
+[1,2,3,2,2,2,3,3,3,3,4,4]
+ 0 1 2 3 4 5 6 7 8 9 10 11
+
+i = 2, j=7 -> skip
+i = 2, j=8 -> skip
+i = 2, j=9 -> skip
+i = 2, j=10 -> and  nums[i] != nums[j], i new value = 3 and nums[j] ki value nums[i] me copy karo i.e.
+[1,2,3,4,2,2,3,3,3,3,4,4]
+ 0 1 2 3 4 5 6 7 8 9 10 11
+
+i = 3, j=11 -> skip
+
+
+

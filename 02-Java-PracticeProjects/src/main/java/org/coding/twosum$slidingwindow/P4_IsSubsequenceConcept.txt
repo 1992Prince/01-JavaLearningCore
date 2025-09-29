@@ -1,0 +1,92 @@
+✅ Problem Summary:
+
+Return true if string s is a subsequence of string t.
+
+A subsequence is formed by deleting some (or zero) characters from the string without
+changing the relative order of the remaining characters.
+
+
+✅ Rules / Constraints for a Subsequence
+For s to be a subsequence of t, these must be true:
+
+
+1. ✅ Characters must appear in the same order
+
+All characters of s must appear in t in the same left-to-right order, but not necessarily consecutively.
+
+🧪 Example:
+s = "ace", t = "abcde" → ✅ Valid
+s = "aec", t = "abcde" → ❌ Invalid (order changed)
+
+
+2. ✅ Characters can be skipped in t
+
+t can have extra characters between the ones from s.
+
+🧪 Example:
+
+s = "abc", t = "aXbYcZ" → ✅ Valid
+
+
+3. ✅ You can delete characters in t, but not rearrange
+
+Think of s as being formed by deleting some characters from t, but not reordering.
+
+🧪 Example:
+s = "ab", t = "ba" → ❌ Invalid (order violated)
+
+
+4. ✅ All characters in s must exist in t
+
+If even one character in s is not present in t after the last matched character, it's invalid.
+
+🧪 Example:
+
+s = "axc", t = "abc" → ❌ 'x' not found in t after 'a'
+
+
+5. ✅ Empty string is always a subsequence
+
+"" is a subsequence of any string, including "" itself.
+
+🧪 Example:
+
+s = "", t = "anything" → ✅ Always true
+
+
+
+6. ❌ You cannot reorder characters in s to match t
+
+🧪 Example:
+
+s = "abc", t = "cba" → ❌ Invalid
+
+-------------------------------------------------------------------------------------
+
+🧪 Summary of Test Case Categories:
+
+| Category                    | Example               | Expected |
+| --------------------------- | --------------------- | -------- |
+| Basic subsequence           | `s="abc", t="ahbgdc"` | ✅ true   |
+| Wrong order                 | `s="aec", t="abcde"`  | ❌ false  |
+| Empty `s`                   | `s="", t="abc"`       | ✅ true   |
+| Empty `t`                   | `s="a", t=""`         | ❌ false  |
+| Both empty                  | `s="", t=""`          | ✅ true   |
+| `s` longer than `t`         | `s="abc", t="ab"`     | ❌ false  |
+| Same strings                | `s="abc", t="abc"`    | ✅ true   |
+| One char in `s`             | `s="b", t="abc"`      | ✅ true   |
+| Char in `s` missing in `t`  | `s="z", t="abc"`      | ❌ false  |
+| Repeated chars (enough)     | `s="aaa", t="aabaaa"` | ✅ true   |
+| Repeated chars (not enough) | `s="aaa", t="aa"`     | ❌ false  |
+| Order matters               | `s="ac", t="ca"`      | ❌ false  |
+
+
+⚠️ Edge Cases to Write in Interview:
+
+// Edge cases
+isSubsequence("", "abc")     // true
+isSubsequence("a", "")       // false
+isSubsequence("", "")        // true
+isSubsequence("abc", "abc")  // true
+isSubsequence("abc", "acb")  // false (order matters!)
+isSubsequence("aaa", "aa")   // false

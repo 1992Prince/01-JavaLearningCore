@@ -1,0 +1,81 @@
+Given two strings s and t, determine if they are isomorphic.
+Two strings s and t are isomorphic if the characters in s can be replaced to get t.
+
+All occurrences of a character must be replaced with another character while preserving the order
+of characters.
+No two characters may map to the same character, but a character may map to itself.
+
+Example 1:
+
+Input: s = "egg", t = "add"
+Output: true
+Explanation:
+        The strings s and t can be made identical by:
+        Mapping 'e' to 'a'.
+        Mapping 'g' to 'd'.
+
+
+Example 2:
+
+Input: s = "foo", t = "bar"
+Output: false
+Explanation:
+    The strings s and t can not be made identical as 'o' needs to be mapped to both 'a' and 'r'.
+
+
+Example 3:
+
+Input: s = "paper", t = "title"
+Output: true
+
+---------------------------------------------------------------
+
+Imp Invalid Cases and Edge cases to cover
+-------------------------------------------
+
+Invalid Isomorphic strings
+
+-> Multiple mappings to same character
+
+	s = "ab", t = "aa"  → false
+	a → a, b → a — two different s characters map to same t character
+	here to make sure we are not mapping diff chars to same character, we need to check if
+	map.values already contains this value or not.
+	If not then put this in map and if yes then return not isomorphic strings
+	here this condition will be checked while putting key value pair in map
+
+
+
+-> Inconsistent mapping
+
+	s = "foo", t = "bar" → false
+	o is mapped to both a and r.
+	this we can check that before putting key "o" into map check if already this key exists in map
+	if yes then fetch its value from map and compare it with another string index char.
+	If both are not equal the return strings are not isomorphic
+	here this condition will be checked while key already exists in map
+
+
+
+🧪 Edge Cases
+
+
+-> Empty strings
+
+	s = "", t = "" → true
+	No characters to map, trivially isomorphic.
+
+-> Different lengths
+
+	s = "abc", t = "de" → false
+	Lengths differ → immediately not isomorphic.
+
+-> Single character strings
+
+	s = "a", t = "b" → true
+	Single char to single char is a valid one-to-one mapping.
+
+-> Same string
+
+	s = "abc", t = "abc" → true
+	Characters map to themselves, and mapping is consistent.

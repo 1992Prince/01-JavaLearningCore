@@ -1,0 +1,53 @@
+🧠 What is the Two Pointer Technique?
+Two-pointer technique is a common pattern in problems where we use two variables (pointers)
+to traverse a data structure (usually an array or string), instead of using nested loops.
+
+🔑 Basic Idea:
+You place one pointer at the start, and another at the end (or both at start),
+and move them toward or across each other based on logic.
+
+📍Common Use Cases:
+
+| Pattern                 | Description                                             | Example Problems                      |
+| ----------------------- | ------------------------------------------------------- | ------------------------------------- |
+| **Start-End**           | One pointer at start, one at end, move based on target  | ✅ Two Sum II, ✅ Palindrome check      |
+| **Both moving forward** | Both pointers start at beginning, one catches the other | ✅ Remove duplicates, ✅ Merging arrays |
+| **Fixed Window**        | Fixed range of size `k` using two pointers              | ✅ Max sum of subarray size k          |
+| **Variable Window**     | Window size can shrink/grow based on condition          | ✅ Longest substring without repeat    |
+
+
+🔧 Where to Use Two Pointers:
+        When array is sorted and you need to find pairs/triplets.
+        When you want to avoid O(n²) nested loops.
+        When solving string or subarray problems with conditions like "longest", "maximum", "minimum".
+
+
+🪟 Is Sliding Window part of Two Pointers?
+Yes, sliding window is a special case of the two-pointer technique,
+used mainly for subarrays or substrings.
+
+✅ Sliding Window Technique
+🔑 Concept:
+You keep a window (range) between two pointers: start and end.
+You slide the window by moving the pointers depending on the condition.
+
+📍Types:
+| Type              | Description                                         |
+| ----------------- | --------------------------------------------------- |
+| **Fixed size**    | Window size stays constant (`end - start + 1 == k`) |
+| **Variable size** | Window expands/contracts to meet some condition     |
+
+
+🧠 Summary to Remember:
+
+    🟢 Two Pointer:
+
+        - Two variables traverse the array/string.
+        - Used in sorted array problems, palindromes, merging, etc.
+
+    🟡 Sliding Window:
+
+        - Specialized two-pointer for subarray/substring problems.
+        - Handles continuous segments with conditions.
+        - Used in maximum/minimum window, distinct elements, etc.
+

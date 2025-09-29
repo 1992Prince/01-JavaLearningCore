@@ -1,0 +1,26 @@
+
+Optimal Approach
+------------------
+
+like find square root of number x
+and x is less than 2 then sqr root of x will be x i.e.
+     0 square root - 0
+     1 square root - 1
+
+	 but if x >= 2 then square root of it will be less than or equal to x/2
+
+     4 square root - 2
+	 9 square root - 3
+	 16 square root - 4
+	 25 square root - 5
+
+	 so if number is >=2 then square root will never exceed x/2
+
+	 conclusion - if x is less than < 2 then square root of x will be x/2
+				  but
+				  if x is >=2 then square root of x will lie b/w [2 and x/2]
+				  so for binary search we got range is [2 to x/2] and this is in increasing order
+
+
+    But for perfect square no it will work wihout any issues but for other numbers like 8, 5,6 etc..
+	return end value[show one example for non perfect numbers]

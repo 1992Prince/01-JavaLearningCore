@@ -1,0 +1,50 @@
+1) What are parametrized Collections? Benefits of them as compared to raw collections?
+
+    Definition: Collections that use generics (e.g., List<String>).
+
+    Benefit over raw collections:
+
+        - Type safety (compile-time check).
+        - No casting needed.
+        - Less runtime errors, more readable code
+
+        This is parametrized Collection and u can add only String elements and no other
+        else u will get compile time error.
+
+
+2) wch one is preferred and Y and cons?
+
+ArrayList<String> stringArrayList = new ArrayList<>();
+List<String> stringArrayList = new ArrayList<>();
+Collection<String> stringArrayList = new ArrayList<>();
+Iteratble<String> stringArrayList = new ArrayList<>();
+
+All are correct and will work but
+
+Preferred: List<String> stringArrayList = new ArrayList<>();
+
+Why:
+
+    Code to the interface (List) not the implementation (ArrayList).
+
+    Easier to change implementation later (e.g., LinkedList).
+
+Cons:
+
+    If declared as Collection or Iterable, you only get those interface methods (limited functionality).
+
+
+3) what below code depicts:
+
+System.out.println("ArrayList instanceof List: "
+                    + (stringArrayList instanceof List));
+        System.out.println("ArrayList instanceof List: "
+                + (stringArrayList instanceof Collection));
+        System.out.println("ArrayList instanceof List: "
+                + (stringArrayList instanceof Iterable));
+
+
+    Shows that ArrayList implements List, Collection, and Iterable.
+
+    Demonstrates Java’s interface hierarchy:
+    Iterable <- Collection <- List <- ArrayList.

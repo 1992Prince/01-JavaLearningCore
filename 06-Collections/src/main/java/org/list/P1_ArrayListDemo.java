@@ -3,9 +3,13 @@ package org.list;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 public class P1_ArrayListDemo {
 
+    /**
+     *covered - add, addAll() and Iteration via for loop, for each, iterator , listIterator and forEach()
+     */
     public static void main(String[] args) {
 
         /**
@@ -45,24 +49,39 @@ public class P1_ArrayListDemo {
         System.out.println();
         // NamesList - [Arun, Brijesh, Pathak, Chahar, Sunita, Mutthu]
 
+
+
         /**
          * Adding another collection at particular index
          */
+
         ArrayList<String> fruitsList = new ArrayList<>(List.of("apple","banana"));
         namesList.addAll(1,fruitsList);
         System.out.println(namesList);
         // [Arun, apple, banana, Brijesh, Pathak, Chahar, Sunita, Mutthu]
         System.out.println();
 
+
+
         /**
          * Adding another collection at last of element
          */
+
+
         namesList.addAll(fruitsList);
         System.out.println(namesList);
         // [Arun, apple, banana, Brijesh, Pathak, Chahar, Sunita, Mutthu, apple, banana]
         System.out.println();
 
         System.out.println("----------ADD OPERATION OVER------------------");
+
+
+
+
+
+
+
+
         System.out.println("----------ITERATION OPERATION-----------------");
         System.out.println();
 
@@ -142,6 +161,8 @@ public class P1_ArrayListDemo {
         System.out.println();
 
 
+
+
         //---------------------------Iterating ArrayList via iterator------------------------------------------------------
 
         // we can use iterator also
@@ -153,12 +174,34 @@ public class P1_ArrayListDemo {
         }
         // Arun Pikachu banana Brijesh Pathak Chahar Sunita Mutthu apple banana
         System.out.println();
+        System.out.println();
+
+
+
 
         System.out.println("----------ITERATION VIA FOREACH-------------");
         // forEach() is added from jdk 1.8 version
         //namesList.forEach(ele -> System.out.print(ele));
         namesList.forEach(System.out::print);
         // ArunPikachubananaBrijeshPathakChaharSunitaMutthuapplebanana
+
+
+        System.out.println();
+        System.out.println();
+
+
+
+        System.out.println("----------ITERATION VIA ListIterator-------------");
+        System.out.println();
+        System.out.println("namesList : " + namesList);
+
+        ListIterator<String> listItr = namesList.listIterator();
+        while(listItr.hasNext()){
+            System.out.print(listItr.next() + " ");
+        }
+
+        //Arun Pikachu banana Brijesh Pathak Chahar Sunita Mutthu apple banana
+
 
 
     }

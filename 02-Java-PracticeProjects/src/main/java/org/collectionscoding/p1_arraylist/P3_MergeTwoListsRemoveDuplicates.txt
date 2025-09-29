@@ -1,0 +1,46 @@
+Example without preserving order
+----------------------------------
+
+Agar tum sirf Set use karke merge karo:
+
+List<Integer> list1 = Arrays.asList(3, 1, 2);
+List<Integer> list2 = Arrays.asList(2, 4);
+
+Set<Integer> set = new HashSet<>();
+set.addAll(list1);
+set.addAll(list2);
+
+System.out.println(set); // Output could be [1, 2, 3, 4] (order not preserved)
+
+
+HashSet order maintain nahi karta, isliye pehle elements kis order me aaye the,
+wo final output me lose ho jaata hai.
+
+
+
+Example with preserving order
+---------------------------------
+
+List<Integer> list1 = Arrays.asList(3, 1, 2);
+List<Integer> list2 = Arrays.asList(2, 4);
+
+List<Integer> merged = new ArrayList<>();
+for (Integer num : list1) {
+    if (!merged.contains(num)) {
+        merged.add(num);
+    }
+}
+for (Integer num : list2) {
+    if (!merged.contains(num)) {
+        merged.add(num);
+    }
+}
+
+System.out.println(merged); // Output: [3, 1, 2, 4]
+
+Yahan tum dekhoge:
+    3, 1, 2 ka order list1 se preserve hua
+    4 list2 se aaya, lekin wo end me gaya kyunki pehli baar wahi pe mila.
+
+💡 Short definition:
+Preserving order means pehle jis sequence me element mila, final list me wahi sequence maintain karna — duplicates hata ke.

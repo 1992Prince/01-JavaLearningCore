@@ -1,0 +1,54 @@
+✅ What are Non-Alphanumeric Characters?
+
+Alphanumeric characters =
+            👉 Letters (A–Z, a–z) + Digits (0–9)
+
+So, non-alphanumeric characters are:
+
+            Symbols: @, #, $, %, &, *, etc.
+
+            Punctuation: ., ,, !, ?, :, etc.
+
+            Whitespace: space, tab, newline
+
+            Special chars: ^, ~, ', ", /, \, etc.
+
+
+-----------------------------------------------------------------------
+
+
+✅ How to check for non-alphanumeric in Java?
+
+🔸 1. Using Character class
+
+char ch = '@';
+
+if (!Character.isLetterOrDigit(ch)) {
+    System.out.println("Non-alphanumeric character");
+} else {
+    System.out.println("Alphanumeric character");
+}
+
+    Character.isLetterOrDigit(char) → ✅ returns true for a-z, A-Z, 0–9
+
+    We used ! to check non-alphanumeric
+
+
+🔸 2. Using Regular Expressions (for Strings)
+
+Check if a string contains any non-alphanumeric characters:
+
+    String str = "Hello@123";
+
+    if (str.matches(".*[^a-zA-Z0-9].*")) {
+        System.out.println("Contains non-alphanumeric characters");
+    } else {
+        System.out.println("Only alphanumeric characters");
+    }
+
+
+Regex explained:
+
+    [^a-zA-Z0-9] → means not a letter or digit
+
+    .*...* → allows matching anywhere in the string

@@ -19,6 +19,7 @@ public class P7_CollectionsSortMethod {
          * 2. Custom order sort with Comparator - Collections.sort(list, comparator);
          */
 
+
         // ✅ Example 1: Sort Strings Alphabetically
         List<String> names = new ArrayList<>(List.of("Zara", "Ankit", "Brijesh"));
         Collections.sort(names);
@@ -26,23 +27,39 @@ public class P7_CollectionsSortMethod {
 
         System.out.println();
 
-        // ✅ Example 2: Sort Integers
+
+
+        // ✅ Example 2: Sort Integers in ascending
         List<Integer> nums = new ArrayList<>(List.of(5, 2, 8, 1));
         Collections.sort(nums);
         System.out.println(nums); // [1, 2, 5, 8]
 
         System.out.println();
 
-        // ✅ Example 3: Sort in Reverse Order
-        Collections.sort(nums, Collections.reverseOrder());
-        System.out.println(nums); // [8, 5, 2, 1]
+
+
+        // ✅ Example 3: Sort Integers in descending
+        List<Integer> nums2 = new ArrayList<>(List.of(5, 2, 8, 1));
+        Collections.sort(nums2, Collections.reverseOrder());
+        System.out.println("nums2 - " + nums2); // nums2 - [8, 5, 2, 1]
 
         System.out.println();
+
+
 
         // ✅ Example 4: Sort Strings by Length
         List<String> names2 = new ArrayList<>(List.of("Ram", "Krishna", "A", "Shyam"));
         Collections.sort(names2, Comparator.comparingInt(String::length));
         System.out.println(names2); // [A, Ram, Shyam, Krishna]
+
+        System.out.println();
+
+        // ✅ Example 5: Reverse list
+        List<Integer> nums3 = new ArrayList<>(List.of(5, 2, 8, 1));
+        Collections.reverse(nums3);
+        System.out.println("Reversed nums3 - " + nums3); // Reversed nums3 - [1, 8, 2, 5]
+
+
 
         /**
          * 🔁 Difference: Collections.sort() vs List.sort()

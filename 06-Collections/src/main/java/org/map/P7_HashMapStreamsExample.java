@@ -16,6 +16,7 @@ public class P7_HashMapStreamsExample {
         map.put(104, "Divya");
         map.put(105, "Arun");
 
+
         // ✅ Filter example: Get keys whose value starts with "A"
         System.out.println("\nKeys where value starts with A:");
         List<Integer> list1 = map.entrySet()
@@ -31,6 +32,8 @@ public class P7_HashMapStreamsExample {
          */
 
         System.out.println();
+
+
 
         // ✅ Iterator example on entrySet
         System.out.println("\nUsing iterator on entrySet:");

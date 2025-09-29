@@ -1,0 +1,253 @@
+1️⃣ What is Linear Data Structure?
+
+Definition:
+Linear Data Structure ka matlab hota hai data ko sequence/order me store karna, jaha har element ek ke
+baad ek arrange hota hai.
+
+👉 Example: Array, Stack, Queue, Linked List.
+
+Visualization: [10] → [20] → [30] → [40]
+
+Ye ek linear arrangement hai.
+
+
+
+2️⃣ How elements are stored in Arrays? What is Contiguous Memory Location?
+
+Array me elements continuous (side by side) memory blocks me store hote hain.
+
+Agar array arr[5] banaya hai, aur first element ka address = 1000 hai, to har element next memory block me hoga.
+
+👉 Example (integer = 4 bytes):
+
+arr[0] → 1000
+arr[1] → 1004
+arr[2] → 1008
+arr[3] → 1012
+
+Yani contiguous memory location = side-by-side memory allocation
+
+3️⃣ Example of Linear Data Structures ke names
+
+    - Array
+    - Stack
+    - Queue
+    - Linked List
+
+
+4️⃣ What is Linked List?
+
+Linked List ek linear data structure hai jaha elements random memory me store hote hain, par har element ke
+paas ek pointer (address) hota hai jo next element ko point karta hai.
+
+NOTE: elements are stored randomly in memory and not in contiguous order like array elements.
+
+5️⃣ What are Nodes in Linked List?
+
+Node ek block hota hai jisme do cheeze hoti hain:
+
+    - Data (actual value store karta hai)
+    - Pointer/Reference (next node ka address store karta hai)
+
+👉 Visualization of a Node: [ Data | Next ]
+
+
+6️⃣ Array vs Linked List (Memory Storage)
+
+Array: Contiguous memory (side-by-side).
+Linked List: Random memory, par connected via pointers.
+
+👉 Visualization:
+Array:
+
+1000 1004 1008 1012
+[10] [20] [30] [40]
+
+Linked List:
+[10 | 200] → [20 | 500] → [30 | 700] → NULL
+
+7️⃣ Types of Linked List
+
+Singly Linked List (SLL) – Node points only to next node. [here we can traverse to front direction only]
+Doubly Linked List (DLL) – Node points to both previous and next node. [here we can traverse both front and back]
+Circular Linked List (CLL) – Last node points back to first node (circular chain).
+
+8️⃣ Structure of Node in Linked List in Java
+
+class Node {
+    int data;      // value store karega
+    Node next;     // next node ka reference (pointer jaisa)
+
+    // Constructor
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+👉 Example: Agar hum Node n1 = new Node(10); likhenge to n1.data = 10 hoga aur n1.next = null.
+And memory me yeh node ek block address occupy karega
+
+9️⃣ What is Head and Tail in Linked List?
+
+    - Head = first node ka reference.
+    - Tail = last node ka reference.
+
+🔟 In Singly Linked List: Head and Tail values
+
+Head → first node ka address.
+Tail → last node ka pointer NULL hota hai (kyunki aage koi node nahi).
+
+Visualization:
+
+Head → [10 | next] → [20 | next] → [30 | NULL] = Tail
+
+
+1️⃣1️⃣ In Cyclic Linked List: Head and Tail values
+
+Head → first node ka address.
+Tail → last node ka pointer Head ko point karega (NULL nahi hoga).
+
+Visualization:
+Head → [10 | next] → [20 | next] → [30 | next] --
+        ↑--------------------------------------|
+
+
+1️⃣2️⃣ How LL is represented?
+
+Linked List ko Head pointer ke through represent karte hain. Agar head = NULL, to list empty hai.
+
+
+1️⃣3️⃣ Singly LL vs Doubly LL vs Cyclic LL
+
+| Feature           | Singly LL        | Doubly LL         | Circular LL            |
+| ----------------- | ---------------- | ----------------- | ---------------------- |
+| Pointer direction | Next only        | Prev + Next       | Next (circular)        |
+| Traversal         | One direction    | Both directions   | Circular loop possible |
+| Tail ka next      | NULL             | NULL              | Points to head         |
+| Memory usage      | Less (1 pointer) | More (2 pointers) | Similar to SLL         |
+
+
+
+📒 Notes: Linked List vs Array
+
+1️⃣ Nature
+
+Array → Linear DS, elements contiguous memory me store hote hain.
+Linked List (LL) → Linear DS, elements random memory me store hote hain but connected via pointers (references).
+
+2️⃣ Memory
+
+Array → Contiguous memory, memory efficient (sirf values).
+Linked List → Non-contiguous memory, har node me extra space lagta hai (pointer ke liye).
+
+👉 Node structure in LL: [data | next address]
+👉 Array element: [value]
+
+
+3️⃣ Size
+
+Array → Fixed size (compile-time decide hota hai, ya resize karna padta hai).
+Linked List → Dynamic size (jitni zarurat ho utne nodes add/delete kar sakte ho).
+
+4️⃣ Fetching Elements
+
+Array → Fast (direct index se access).
+Linked List → Slow (sequential traversal karna padta hai, ek ek karke).
+
+5️⃣ Insertion & Deletion
+
+Array → Difficult (shift karna padta hai elements ko, time lagta hai).
+Linked List → Easy (sirf pointers change karne hote hain).
+
+6️⃣ Time Complexity Table
+
+| Operation         | Array                   | Linked List            |
+| ----------------- | ----------------------- | ---------------------- |
+| Access (by index) | **O(1)** (direct index) | **O(n)** (traverse)    |
+| Search (by value) | **O(n)**                | **O(n)**               |
+| Insertion at end  | O(1) / O(n)\*           | O(n) (or O(1)\*\*)     |
+| Insertion at head | O(n) (shift needed)     | O(1)                   |
+| Deletion at head  | O(n) (shift needed)     | O(1)                   |
+| Deletion at end   | O(1) / O(n)\*           | O(n) (unless tail ptr) |
+
+* Array me agar space full hai to resizing O(n).
+** LL me agar tail pointer maintain karte ho to O(1), warna O(n).
+
+7️⃣ Why differences?
+
+Insertion/Deletion
+
+    - Array → elements shift karne padte hain → costly.
+    - LL → pointers update hote hain → easy.
+
+Access
+
+    - Array → direct address calculate hota hai: Base + index * size.
+    - LL → har node traverse karna padta hai → slow.
+
+Memory
+
+    - Array → only data store.
+    - LL → data + extra pointer store (extra memory overhead).
+
+
+
+8️⃣ Use Cases
+
+✅ Array
+
+    - Jab direct index access fast chahiye ho.
+    - Data ka size fixed / predictable ho.
+    - Memory efficient storage chahiye.
+
+✅ Linked List
+
+    - Jab frequent insertion/deletion ho (head/tail).
+    - Jab size unknown ho ya dynamic grow/shrink karna ho.
+    - Jab traversal/manipulation zyada karni ho.
+
+9️⃣ Visual Difference
+
+Array (contiguous memory):
+
+1000 1004 1008 1012
+[10] [20] [30] [40]
+
+Linked List (non-contiguous):
+
+[10 | 200] → [20 | 500] → [30 | 700] → NULL
+
+
+
+
+
+
+Rough Notes:
+------------------------
+
+Linked List vs Arrays
+
+linear ds -  linear ds
+non - contigous , arr is contigous
+LL have dynamic size, arra have fixed size ad u can't change it
+Node = [data + next node address], arry just have value
+
+fetchig element is hard, fetching ele is easy we just need to provide index
+insertion and deletion is easy in LL since we just need to change pointers or prevous nodes, insertion and deletion in arr is complex
+extra memory, arr is memory efficient
+
+How much time it takes to insert element in LL vs in array [Time complexity]
+What is Time Complexity of Intertion and deletion in LL vs Arrays
+Y insertion/deletion is easy in LL but hard in Arrays
+Y fetching element is hard in LL but easy in Array
+What is Time complexity of fetching element from LL vs in array
+Y Array is memory efficient and LL takes some extra memory
+
+Use Cases:
+
+Access element by index fast   - array
+Insert / del at head/tail frequently - LL
+Memory efficient storage for static size - array
+Avoid resizing overhead and unknow size upront - LL
+Do lots of traversals/manipulation - LL

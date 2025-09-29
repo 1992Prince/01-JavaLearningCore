@@ -25,12 +25,17 @@ public class P0_HashMapDemo {
         // 📝 put(K, V) adds key-value. If key exists → replaces value.
         System.out.println();
 
+
+
+
         // 🔹 2. Retrieve Values
         System.out.println(map.get(1));       // Apple
         System.out.println(map.getOrDefault(5, "Default")); // Default
         // 📝 get(key) → returns value or null.
         // 📝 getOrDefault(key, defaultVal) → avoids null checks.
         System.out.println();
+
+
 
         // 🔹 3. Check Presence
         System.out.println(map.containsKey(2));   // true
@@ -40,6 +45,8 @@ public class P0_HashMapDemo {
         System.out.println();
         System.out.println("HashMap obj : " + map); // HashMap obj : {1=Apple, 2=Blueberry, 3=Cherry}
         System.out.println();
+
+
 
         // 🔹 4. Remove Entries
         map.remove(3);
@@ -51,6 +58,8 @@ public class P0_HashMapDemo {
 
         // 📝 remove(key) or remove(key, value) (conditional delete)
         System.out.println();
+
+
 
         // 🔹 5. Replace Values
         map.replace(1, "Green Apple");             // replaces if key exists

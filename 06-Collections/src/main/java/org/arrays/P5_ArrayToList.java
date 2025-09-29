@@ -1,5 +1,6 @@
 package org.arrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -114,6 +115,8 @@ public class P5_ArrayToList {
         System.out.println();
         System.out.println("Jai Shree Ram!!!");
 
+
+
         /**
          * ✅ Case 2: Arrays.asList("Apple", "Boy", "Cat")
          * List<String> list = Arrays.asList("Apple", "Boy", "Cat");
@@ -139,7 +142,11 @@ public class P5_ArrayToList {
          */
 
 
+
+
     /*
+
+
 ====================================================================================================
 🔰 Modifiable List from Array in Java
 
@@ -169,5 +176,30 @@ public class P5_ArrayToList {
 “Wrap Arrays.asList(array) inside new ArrayList<>(...).
 This gives a fully independent and modifiable list, unlike the fixed-size list from asList() alone.”
 */
+
+        System.out.println();
+        System.out.println("--------- List creation from Arrays of diff types ---------");
+
+        // List of Integer
+        Integer[] intArray = {1, 2, 3, 4, 5};
+        List<Integer> intList1 = Arrays.asList(intArray);
+        List<Integer> intList2 = new ArrayList<>(Arrays.asList(intArray));
+        System.out.println("intList1 is non-modifiable but intList2 is modifiable");
+        System.out.println(intList1 + " " + intList2); // [1, 2, 3, 4, 5] [1, 2, 3, 4, 5]
+        System.out.println();
+
+        // List of Double
+        Double[] doubleArray = {1.1, 2.2, 3.3, 4.4};
+        List<Double> doubleList = Arrays.asList(doubleArray);
+        List<Double> doubleList2 = new ArrayList<>(Arrays.asList(doubleArray));
+        System.out.println(doubleList + " " + doubleList2); // [1.1, 2.2, 3.3, 4.4] [1.1, 2.2, 3.3, 4.4]
+        System.out.println();
+
+        // List of Character
+        Character[] charArray = {'A', 'B', 'C', 'D'};
+        List<Character> charList = Arrays.asList(charArray);
+        List<Character> charList2 = new ArrayList<>(Arrays.asList(charArray));
+        System.out.println(charList + " " + charList2); // [A, B, C, D] [A, B, C, D]
+        System.out.println();
     }
 }

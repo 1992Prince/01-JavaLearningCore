@@ -1,0 +1,99 @@
+✅ Conceptual Notes Before Solving:
+        - Count Digits,
+        - Reverse Number,
+        - Sum of Digits,
+        - check palindrome num etc. [in all these type of questions, u mostly need to use while loop]
+        - for single digit like 1,2,3 / 10 always return 0 and so for palindrome use condition
+          while(num != 0) bcoz at the end num wll become 0 and there loop will break
+
+int a = 43;
+int b = 10;
+
+System.out.println(a / b); // 4  (quotient)
+System.out.println(a % b); // 3  (remainder)
+
+So
+/ gives quotient
+% gives remainer
+
+Another example -
+121 / 10 -> 12 [removed last digit]
+12 / 10 -> 1 [removed last digit]
+1/10 -> 0
+
+121 % 10 - 1
+12 % 10 - 2
+1 % 10 - 1
+
+and so if u print last digits then it will print - 1 then 2 and then 1
+
+
+
+🔢 Basic Math Behind Number Operations:
+
+🔸 Division by 10 (num / 10)
+
+	Removes last digit from a number.
+	e.g. 123 / 10 = 12
+	✅ Use this to drop last digit
+
+🔸 Modulo by 10 (num % 10)
+
+	Gives last digit of a number.
+	e.g. 123 % 10 = 3
+	✅ Use this to get last digit
+
+
+-----------------------------------------------
+
+🔁 Looping Strategy for Digit Problems
+
+1) First fetch the last digit by % that num with 10 and store it in new var
+
+Now we got the last digit of num, we need to remove that last digit from that num and that
+we can do with / operator i.e.
+
+2) Then to remove last digit from num -> divide that num by 10 and assign it to same var
+
+
+while (num > 0) {
+    let lastDigit = num % 10;       // ✅ get last digit
+    num = Math.floor(num / 10);     // ✅ remove last digit
+}
+
+
+------------------------------------------------------------------
+
+⚠️ Edge cases to consider:
+
+1. num = 0
+
+    Your current loop won’t run at all (while(num > 0)), so count stays 0.
+    But 0 has 1 digit, so you need a special case: if(num == 0) count = 1;
+
+
+2. Negative numbers
+
+    Right now, negatives are ignored because while(num > 0) won’t run.
+    You can fix it by taking absolute value:
+    num = Math.abs(num);
+
+
+Corrected version (handles all integers):
+
+        int num = -4335;
+        int count = 0;
+
+        if (num == 0) {
+            count = 1;
+        } else {
+            num = Math.abs(num);
+            while(num > 0){
+                count++;
+                num /= 10;
+            }
+        }
+
+        System.out.println("No of digits are - " + count);
+
+        👉 This will give correct digit counts for positive, negative, and zero.

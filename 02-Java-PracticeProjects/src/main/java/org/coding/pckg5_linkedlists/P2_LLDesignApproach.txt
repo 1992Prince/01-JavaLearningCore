@@ -1,0 +1,117 @@
+📝 Approach to Design Linked List in Java
+
+1) Create a Nested Node Class
+
+- Kyunki Node sirf MyLinkedList ke kaam ka hai, isliye hum usko ek nested class banayenge.
+- Har node ke andar do cheeze hongi:
+    - val → data store karega.
+    - next → next node ka reference rakhega.
+
+- Constructor me dono ko initialize karenge.
+
+private class Node {
+    int val;
+    Node next;
+
+    Node(int val) {
+        this.val = val;
+        this.next = null;  // readability ke liye likh rahe
+    }
+}
+
+
+
+2) Head Pointer & Size Maintain Karna
+
+- Ek LinkedList hamesha head pointer se identify hoti hai (jo first node ko point karega).
+- Agar list empty hai, to head = null.
+- Saath hi ek variable size rakhenge jo current LinkedList ke length ko track karega.
+
+
+class MyLinkedList {
+    private Node head;   // starting point
+    private int size;    // track number of nodes
+
+    public MyLinkedList() {
+        head = null;  // initially list empty
+        size = 0;     // size 0
+    }
+}
+
+
+Till now LL stucture will look like below
+
+public class P2_MyLinkedList {
+
+    Node head;
+    int size;
+
+    class Node {
+        int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public P2_MyLinkedList() {
+        this.size = 0;
+        this.head = null;
+    }
+
+}
+
+Now we need to add operations in this MyLinkedList class
+
+    - get(int index)
+    - addAtHead(int val)
+    - addAtTail(int val)
+    - addAtIndex(int index, int val)
+    - deleteAtIndex(int index)
+
+1) addAtHead(int val)
+
+    a) Here first we will check if LL is empty then create new node and point that node as head
+    b) if already LL exists [check via LL size] then
+       create new node -> point new node next to head -> then point head to new node
+
+    In both a) and b) cases increase size of LL
+
+
+2) addAtTail(int val)
+
+    a) Here first we will check if LL is empty then create new node and point that node as head
+
+    b) if already LL exists [check via LL size] then create new node ->
+       traverse to last of LL -> point last node next to new node
+
+    In both a) and b) cases increase size of LL
+
+3) addAtIndex(int index, int val)
+
+a) Here first we will check if LL is empty then create new node and point that node as head
+
+b) if already LL exists [check via LL size] then check index is less than size of LL else return
+   by printing given index if greater than LL -> create new node ->
+   traverse to index of that LL -> now here we have 2 conditions
+   1) If index equals the length of the linked list, the node will be appended to
+      the end of the linked list
+   11) If index is greater than the length, the node will not be inserted.
+   111) Add a node of value val before the indexth node in the linked list. So
+        for this we need to reach index node before
+        like already LL is  : 10 -> 30 -> 50 -> null then addAtIndex(45,1)
+                         idx   0    1    2
+
+        new LL will be : 10 -> 45 -> 30 -> 50 -> null
+                   idx   0      1     2     3
+
+                   let newNode = new Node(val);
+                       newNode.next = current.next;
+                       current.next = newNode;
+                       this.size++;
+        Assume all nodes in the linked list are 0-indexed. [already specified in Question]
+
+
+4) deleteAtIndex(int index)

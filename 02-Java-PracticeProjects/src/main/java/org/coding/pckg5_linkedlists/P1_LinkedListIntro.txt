@@ -1,0 +1,76 @@
+How LinkedList is different from Arrays
+------------------------------------------
+
+-> Both are linear data structure.
+
+-> LinkedList is non-contigeous ds but arrays are contigeous ds
+
+-> Generally arrays are fixed size [can be dynamic also] and linked-list are dynamic size
+
+-> Arrays have only values but linked-list have nodes and each node have value and pointer to next node
+
+-> In Arrays fetching element is easy but in LinkedList fetching an element is hard.
+   Suppose in array, u want to fetch an element like 3rd index element then u just need to give arr[2] and it will return u the value
+   but in LinkedList, for fetchin 3rd node value, u need to traverse from head to second node and then 3rd node and then u will access value
+   of that 3rd node.
+   In LinkedList, u can't just to 3rd node directly from head or any other node. U need to traverse from first node always.
+   And so fetching elements is hard in LinkedList.
+
+   Also in terms of Time Complexity,
+   IF u want to fetch element at 3rd index of array , u need to give arr[3] and here time complexity is O(1)
+   but
+   In LL for fetching element from 3rd node, u need to traverse from starting node i.e. head .
+   So in worst case if u want to get last node element then u need to traverse n nodes from start , if LL have n nodes.
+   So in this case Time complexity will be O(n) where n is no of nodes present in LL
+
+   so fetching elements from Array is efficient and but fetching elements from LL is hard.
+
+
+-> Insertion and Deletion is very very efficient and easy in LL but in Arrays insertion / deletion operation is not efficient and hard.
+   Suppose a LL have 4 nodes and u want to insert new node after 2nd node.
+   Here 2nd node is pointing to 3rd node. U need to create a new node.
+   And then U just need to update 2nd node pointer to new node and new node pointer to earlier 3rd node.
+
+   Very similar case will be for Deletion operation.
+   And so insertion/deletion operation is easy and efficient in LL.
+
+   But in case of arrays , suppose u have an array of 4 element i.e. [5, 3, 11, 14] and u want to insert element at 3rd index of array
+                                                                      0  1   2   3
+
+	Firstly u need to create a new memory location in exisitng array i.e. [5, 3, 11, 14, ] or create new array with increased size
+
+   For this insertion u need to shift 3rd index element i.e. 14 to RHS.
+   And suppose if u want to insert new element at 0th index then u need to shift all 4 exisiting elements towards RHS so to create a space
+   for new element.
+
+   Very similar case for deletion of an exisiting element, suppose u want to delete index 1 element then u need to shift RHS side elements to LHS
+   side.
+
+   so if there are any problems where u need to do frequent additions or deletions operations then LL is favourable there but if
+   your frequent operations is accessing values then arrays ds are best and favourable.
+
+   But Time Complexity for insertion/deletion in LL and array is O(n) but still LL is preferred.
+
+-> LL needs extra memory but Arrays are always memory efficient.
+
+   For 4 values in array, it will create 1 memory with 4 spaces
+   but in case of LL, u need 4 nodes and each node need space for storing value and pointer to next node.
+
+
+UseCases
+=========================
+
+When we should use LL and when we should use array
+
+If u want to                                    Use
+
+Access elements by index fast                   Array       - Time complexity by array and LinkedList ?
+Insert/delete at head or tail frequently        LinkedList  -
+Memory efficient storage for static size        Array
+Avoid resizing overhead or unknown size upfront LinkedList
+Do lots of traversal/manipulation               LinkedList
+
+
+==============================================================================================
+
+

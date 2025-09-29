@@ -1,0 +1,33 @@
+🔹 Edge Cases in Palindrome Number Problem
+
+1.  Negative numbers (e.g. -121)
+    Palindrome nahi hote (kyunki -121 aur 121- alag hote).
+    if (x < 0) return false; - ✅ Negative case covered.
+
+2. Single digit numbers (0–9)
+   Har single digit number apne aap me palindrome hota hai (1 → 1, 7 → 7).
+   x = 7 → loop reverse = 7 banayega.
+   original == reversed true.
+
+3. Zero (x = 0)
+   0 ko palindrome maana jata hai (forward & backward same).
+   Tere code me:
+       Loop skip ho jaayega (kyunki x != 0 false hoga).
+       reversed = 0 hi rahega.
+       original == reversed true.
+       ✅ Zero handled.
+
+4. Numbers ending with zero but not zero (e.g. 10, 100, 120)
+   Palindrome nahi hote.
+   x = 10
+   Reverse = 1
+   Compare → 10 != 1
+   ✅ Correctly false return hoga
+
+🔹 So final:
+
+    With my code below edge cases are covered:
+        Negative → handled
+        Single digit → palindrome (✅ handled)
+        Zero → palindrome (✅ handled)
+        Numbers ending with 0 (but not 0) → not palindrome (✅ handled)

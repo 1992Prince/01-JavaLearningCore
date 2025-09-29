@@ -7,6 +7,12 @@ import java.util.stream.Collectors;
 
 public class P5_ArrayListMethodsDemo {
 
+    /**
+     * listIterator()
+     * retainAll()
+     * stream()
+     * ArrayList.equals()
+     */
     public static void main(String[] args) {
 
         /**
@@ -24,18 +30,21 @@ public class P5_ArrayListMethodsDemo {
          */
 
         List<String> names = new ArrayList<>(List.of("A", "B", "C", "D"));
-
         ListIterator<String> it = names.listIterator();
 
         System.out.println("--------Forward Direction Iteration-----------");
         System.out.println("Forward iteration:");
+
+
         while (it.hasNext()) {
             System.out.print(it.next() + " "); // A B C D
         }
 
+
         System.out.println();
         System.out.println();
         System.out.println("--------Backward Direction Iteration-----------");
+
 
         System.out.println("Backward iteration:");
         while (it.hasPrevious()) {
@@ -44,6 +53,7 @@ public class P5_ArrayListMethodsDemo {
 
         System.out.println();
         System.out.println();
+
 
         /**
          * 🔧 Common Methods of ListIterator
@@ -58,6 +68,9 @@ public class P5_ArrayListMethodsDemo {
          * | `set(E e)`      | Replace the last element returned  |
          */
 
+
+
+
         /**
          * ✅ 2. retainAll(Collection<?> c) Method
          * 🔹 Purpose
@@ -71,10 +84,14 @@ public class P5_ArrayListMethodsDemo {
          * - It's like doing an intersection.
          */
 
+
+
         System.out.println("--------RetailAll-----------");
 
         List<String> list1 = new ArrayList<>(List.of("A", "B", "C", "D"));
         List<String> list2 = new ArrayList<>(List.of("B", "C", "X", "Y"));
+
+
 
         /**
          * 🔧 Notes
@@ -83,10 +100,15 @@ public class P5_ArrayListMethodsDemo {
          * Matalab list1 k saare elements remove karo and jo elements list 2 me present hah list 1 k unko retain karo
          * Returns true if any elements were removed; false if nothing changed.
          */
+
+
         System.out.println("Before retainAll method : " + list1); // Before retainAll method : [A, B, C, D]
         list1.retainAll(list2);
         System.out.println("Common elements: " + list1); // Common elements: [B, C]
         System.out.println();
+
+
+
 
         System.out.println("----------✅ 1. stream()----------------");
         /**
@@ -103,6 +125,9 @@ public class P5_ArrayListMethodsDemo {
         System.out.println(filtered); // [Arun, Amit, Ankit]
         System.out.println();
 
+
+
+
         System.out.println("----------✅ ArrayList.equals() Method----------------");
         /**
          *🔹 Purpose:
@@ -116,11 +141,15 @@ public class P5_ArrayListMethodsDemo {
          * syntax = boolean isEqual = list1.equals(list2);
          */
 
+
+
         List<String> list3 = new ArrayList<>(List.of("A", "B", "C"));
         List<String> list4 = new ArrayList<>(List.of("A", "B", "C"));
 
         System.out.println(list3.equals(list4)); // ✅ true
         // ✔️ Same elements, same order, same size — so returns true.
+
+
 
         // 🧪 Example 2: Same elements, different order
         List<String> list5 = new ArrayList<>(List.of("A", "B", "C"));
@@ -129,11 +158,15 @@ public class P5_ArrayListMethodsDemo {
         System.out.println(list5.equals(list6)); // ❌ false
         // ❌ Order is different, so lists are not equal.
 
+
+
         // 🧪 Example 3: Different size
         List<String> list7 = new ArrayList<>(List.of("A", "B"));
         List<String> list8 = new ArrayList<>(List.of("A", "B", "C"));
 
         System.out.println(list7.equals(list8)); // ❌ false
+
+
 
         /**
          * for comparing ArrayList of custom objects, we need to override equals method of custom class

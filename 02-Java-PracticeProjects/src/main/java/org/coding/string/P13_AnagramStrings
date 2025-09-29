@@ -1,0 +1,74 @@
+🧠 What Are Anagram Strings?
+
+Two strings are called anagrams if:
+They contain the same characters with the same frequency, but possibly in a different order.
+
+✅ Conditions for Anagram Strings:
+    Same length
+    Same characters
+    Same frequency of each character
+    Order does NOT matter
+
+🔁 Example of Anagram Strings:
+String 1	String 2	Are Anagrams?	Reason
+"listen"	"silent"	✅ Yes	        Same letters, rearranged
+"evil"	    "vile"	    ✅ Yes	        All characters and counts match
+"triangle"	"integral"	✅ Yes	        Same set of characters
+"rat"	    "car"	    ❌ No	        Different characters
+
+❌ Not Anagrams:
+
+"aab" and "abb" → Not anagrams because character counts differ (a appears twice in one, once in the other).
+"hello" and "helo" → Not anagrams because one letter is missing.
+
+Brute Force Approach -
+
+if both string length is diff then return false
+else create 2 maps and iterate first string and keep its all chars and frequencey in map
+and similarly do for another string in another map
+and then check if both maps are equal or not
+If equal then strings are anagram of each other
+and if not equals then strings are not anagram of each other and return false
+
+
+------------------------------------------------------------------
+
+Group Anagrams brute force approach -
+
+✅ Approach: Sorted string ko key bana ke group karna
+
+end me map will look like below
+
+{
+  "aet": ["eat", "tea", "ate"],
+  "ant": ["tan", "nat"],
+  "abt": ["bat"]
+}
+
+🥇 Step 1:
+    Ek Map<String, List<String>> banao.
+    Key: Sorted string (jaise "eat" → "aet")
+    Value: List of original strings jo us key se match karte hain
+
+🥈 Step 2:
+
+    Array ke har string pe loop chalao:
+
+    Har word ko char array me convert karo
+    ➜ "eat" → ['e', 'a', 't']
+
+    Us array ko sort karo
+    ➜ ['a', 'e', 't']
+
+    Fir use wapas string me convert karo
+    ➜ "aet" ← Ye ban gaya tumhara grouping key
+
+
+🥉 Step 3:
+
+    Check karo ki wo key map me already hai ya nahi:
+    Agar hai, to us list me current string add karo
+    Agar nahi, to nayi list banao aur string usme daalo
+
+🏁 Step 4:
+    Map ke sabhi values (lists) uthao aur result me daal do.

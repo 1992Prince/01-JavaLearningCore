@@ -1,0 +1,80 @@
+Write a function that reverses a string.
+The input string is given as an array of characters s.
+
+You must do this by modifying the input array in-place with O(1) extra memory.
+
+Example 1:
+
+    Input: s = ["h","e","l","l","o"]
+    Output: ["o","l","l","e","h"]
+
+Example 2:
+
+    Input: s = ["H","a","n","n","a","h"]
+    Output: ["h","a","n","n","a","H"]
+
+
+Analysis
+-----------------------
+
+1) Good thing is here we are given array of characters and not actually String
+   So we don't need to convert string into array of characters or something.
+   This is good for you that you only need to work on array of characters directly.
+   But if in interview anyone gives you string and ask you to reverse it then
+   first convert that string into arry of characters by using method toCharArray()
+
+2) In question it is specified we need to use same array and make modifications and should
+   not use help of any other array.
+   Take another array and then copying elemnts from given array from last of array to it,
+   will store characters in reverse order . But this solu we don't need to use.
+
+3) logic wch we are gonna use it,
+
+suppose u have below array
+
+    ["h","e","l","l","o"]  => where array have odd elements
+idx-  0   1   2   3   4
+
+hume same array ko modify karna hah for reversing it so we can do swappning of first element with
+last element logic,
+matalab h can be swapped with o
+        e can be swapped with l
+        l is single so no swap req
+
+e.g. 2 -   [ "p","i","k","a","c", "h"] => where array have even elements
+              0   1   2   3   4    5
+            p can be swapped with h
+            i can be swapped with c
+            k can be swapped with a
+
+
+💡💡💡💡💡💡💡💡💡 ITNA  TOH CLEAR HO GAYA HO NA PRINCE 💡💡💡💡💡💡💡💡
+
+🧠 approach1:
+
+ab swap karne k lie hum do variables lenge i and j
+i we can keep at 0th index and j we can keep at last index of array
+now swap i with j and then increment i and decrement j
+continue till i < j
+
+and here try to use while loop instead of for loop [but both while or for will work]
+
+lekin Prince u prefer while loop
+
+
+🧠 approach2:
+
+yaha we will use only 1 variable i and we don't have any j
+and j was at last index of array
+
+e.g. [ "p","i","k","a","c", "h"]
+        0   1   2   3   4    5
+
+agar i = 0 , arr.length = 6, j = 6-1-i = 5
+agar i = 1 , arr.length = 6, j = 6-1-i = 4
+agar i = 2 , arr.length = 6, j = 6-1-i = 3
+
+here also u can use for loop or while loop but make sure to use condition i<j
+
+code:
+
